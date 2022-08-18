@@ -10,8 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/gradient_button.dart';
 import 'widgets/signup_screen_text.dart';
 
-class SginInOrLogin extends StatelessWidget {
-  const SginInOrLogin({Key? key}) : super(key: key);
+class SginInOrCreate extends StatelessWidget {
+  const SginInOrCreate({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

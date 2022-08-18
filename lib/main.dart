@@ -2,7 +2,7 @@ import 'package:amazon_clone/core/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'view/sgin_in or login/sgin_in_or_login_screen.dart';
+import 'view/sgin_in or login/sgin_in_or_create.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,13 +25,14 @@ class Amazon extends StatelessWidget {
         ),
       ),
       home: const AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle(
-            statusBarColor: UiColors.backgroundColor,
-            systemNavigationBarColor: UiColors.backgroundColor,
-            statusBarIconBrightness: Brightness.dark,
-            systemNavigationBarIconBrightness: Brightness.dark,
-          ),
-          child: SginInOrLogin()),
+        value: SystemUiOverlayStyle(
+          statusBarColor: UiColors.backgroundColor,
+          systemNavigationBarColor: UiColors.backgroundColor,
+          statusBarIconBrightness: Brightness.dark,
+          systemNavigationBarIconBrightness: Brightness.dark,
+        ),
+        child: SginInOrCreate(),
+      ),
     );
   }
 }
