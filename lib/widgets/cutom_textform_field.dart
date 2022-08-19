@@ -16,16 +16,16 @@ class CustomTextFoemField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceHeight = MediaQuery.of(context).size.height;
-    double deviceWidth = MediaQuery.of(context).size.width;
+    Size screenSize = MediaQuery.of(context).size;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.only(
-            left: deviceWidth / 20,
-            top: deviceHeight / 80,
-            bottom: deviceHeight / 80,
+            left: screenSize.width / 20,
+            top: screenSize.height / 80,
+            bottom: screenSize.height / 80,
           ),
           child: Text(
             title,
@@ -37,8 +37,8 @@ class CustomTextFoemField extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: deviceWidth / 25,
-            right: deviceWidth / 25,
+            left: screenSize.width / 25,
+            right: screenSize.width / 25,
           ),
           child: TextFormField(
             controller: controller,

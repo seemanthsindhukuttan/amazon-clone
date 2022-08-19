@@ -15,8 +15,8 @@ class UserAuthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceHeight = MediaQuery.of(context).size.height;
-    double deviceWidth = MediaQuery.of(context).size.width;
+    Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0.5,
@@ -25,7 +25,7 @@ class UserAuthScreen extends StatelessWidget {
         centerTitle: true,
         title: SvgPicture.asset(
           AppConstants.amazonLogo,
-          height: deviceHeight / 40,
+          height: screenSize.height / 40,
         ),
       ),
       body: SafeArea(
@@ -36,7 +36,8 @@ class UserAuthScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: deviceWidth / 30, vertical: deviceWidth / 40),
+                      horizontal: screenSize.width / 30,
+                      vertical: screenSize.width / 40),
                   child: Text(
                     'Welcome',
                     style: GoogleFonts.montserrat(
@@ -51,7 +52,8 @@ class UserAuthScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.only(
-                        left: deviceWidth / 30, right: deviceWidth / 30),
+                        left: screenSize.width / 30,
+                        right: screenSize.width / 30),
                     child: Container(
                       decoration: BoxDecoration(
                         color: userAuthScreenController.showCreateAccount.isTrue
@@ -110,9 +112,10 @@ class UserAuthScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.only(
-                        left: deviceWidth / 30, right: deviceWidth / 30),
+                        left: screenSize.width / 30,
+                        right: screenSize.width / 30),
                     child: Container(
-                      width: deviceWidth,
+                      width: screenSize.width,
                       decoration: BoxDecoration(
                         color:
                             userAuthScreenController.showCreateAccount.isFalse

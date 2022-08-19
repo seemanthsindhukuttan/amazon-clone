@@ -7,10 +7,10 @@ class SignUpText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceHeight = MediaQuery.of(context).size.height;
-    double deviceWidth = MediaQuery.of(context).size.width;
+    Size screenSize = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.only(left: deviceWidth / 20, top: deviceHeight / 70),
+      padding: EdgeInsets.only(
+          left: screenSize.width / 20, top: screenSize.height / 70),
       child: Text(
         content,
         style: GoogleFonts.aBeeZee(

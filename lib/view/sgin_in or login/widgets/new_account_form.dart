@@ -21,12 +21,11 @@ class _NewAccountFormState extends State<NewAccountForm> {
 
   @override
   Widget build(BuildContext context) {
-    double deviceHeight = MediaQuery.of(context).size.height;
-    double deviceWidth = MediaQuery.of(context).size.width;
+    Size screenSize = MediaQuery.of(context).size;
     return Container(
       color: UiColors.backgroundColor,
-      height: deviceHeight / 1.8,
-      width: deviceWidth,
+      height: screenSize.height / 1.8,
+      width: screenSize.width,
       child: Form(
         key: _formKey,
         child: Column(
@@ -74,7 +73,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: deviceWidth / 50,
+                left: screenSize.width / 50,
               ),
               child: Row(
                 children: [
@@ -92,9 +91,9 @@ class _NewAccountFormState extends State<NewAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: deviceWidth / 55,
-                right: deviceWidth / 25,
-                top: deviceHeight / 90,
+                left: screenSize.width / 55,
+                right: screenSize.width / 25,
+                top: screenSize.height / 90,
               ),
               child: GradientElevatedButton(
                 bodercolor: const Color.fromARGB(255, 195, 175, 146),
@@ -127,9 +126,9 @@ class _NewAccountFormState extends State<NewAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: deviceWidth / 25,
-                right: deviceWidth / 25,
-                top: deviceHeight / 50,
+                left: screenSize.width / 25,
+                right: screenSize.width / 25,
+                top: screenSize.height / 50,
               ),
               child: LinkWell(
                 "By creating an account,you agree to Amazon's https://seemanthsindhukuttan.github.io/#home and https://seemanthsindhukuttan.github.io/#about",

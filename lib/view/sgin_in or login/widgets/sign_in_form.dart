@@ -20,12 +20,11 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
 
   @override
   Widget build(BuildContext context) {
-    double deviceHeight = MediaQuery.of(context).size.height;
-    double deviceWidth = MediaQuery.of(context).size.width;
+    Size screenSize = MediaQuery.of(context).size;
 
     return Container(
-      height: deviceHeight / 2,
-      width: deviceWidth,
+      height: screenSize.height / 2,
+      width: screenSize.width,
       decoration: const BoxDecoration(
         color: UiColors.backgroundColor,
         borderRadius: BorderRadius.only(
@@ -71,7 +70,7 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: deviceWidth / 50,
+                left: screenSize.width / 50,
               ),
               child: Row(
                 children: [
@@ -89,9 +88,9 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: deviceWidth / 25,
-                right: deviceWidth / 25,
-                top: deviceHeight / 40,
+                left: screenSize.width / 25,
+                right: screenSize.width / 25,
+                top: screenSize.height / 40,
               ),
               child: GradientElevatedButton(
                 bodercolor: const Color.fromARGB(255, 195, 175, 146),
@@ -123,9 +122,9 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: deviceWidth / 25,
-                right: deviceWidth / 25,
-                top: deviceHeight / 40,
+                left: screenSize.width / 25,
+                right: screenSize.width / 25,
+                top: screenSize.height / 40,
               ),
               child: LinkWell(
                 "By creating an account,you agree to Amazon's https://seemanthsindhukuttan.github.io/#home and https://seemanthsindhukuttan.github.io/#about",
@@ -144,9 +143,9 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: deviceWidth / 25,
-                right: deviceWidth / 25,
-                top: deviceHeight / 40,
+                left: screenSize.width / 25,
+                right: screenSize.width / 25,
+                top: screenSize.height / 40,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
