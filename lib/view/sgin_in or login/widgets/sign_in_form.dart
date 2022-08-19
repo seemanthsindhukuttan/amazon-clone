@@ -2,6 +2,7 @@ import 'package:amazon_clone/core/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkwell/linkwell.dart';
+import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
 
@@ -20,11 +21,9 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-
     return Container(
-      height: screenSize.height / 2,
-      width: screenSize.width,
+      height: AppConstants.screenSize.height / 2,
+      width: AppConstants.screenSize.width,
       decoration: const BoxDecoration(
         color: UiColors.backgroundColor,
         borderRadius: BorderRadius.only(
@@ -70,7 +69,7 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenSize.width / 50,
+                left: AppConstants.screenSize.width / 50,
               ),
               child: Row(
                 children: [
@@ -88,9 +87,9 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenSize.width / 25,
-                right: screenSize.width / 25,
-                top: screenSize.height / 40,
+                left: AppConstants.screenSize.width / 25,
+                right: AppConstants.screenSize.width / 25,
+                top: AppConstants.screenSize.height / 40,
               ),
               child: GradientElevatedButton(
                 bodercolor: const Color.fromARGB(255, 195, 175, 146),
@@ -122,9 +121,9 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenSize.width / 25,
-                right: screenSize.width / 25,
-                top: screenSize.height / 40,
+                left: AppConstants.screenSize.width / 25,
+                right: AppConstants.screenSize.width / 25,
+                top: AppConstants.screenSize.height / 40,
               ),
               child: LinkWell(
                 "By creating an account,you agree to Amazon's https://seemanthsindhukuttan.github.io/#home and https://seemanthsindhukuttan.github.io/#about",
@@ -143,9 +142,9 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenSize.width / 25,
-                right: screenSize.width / 25,
-                top: screenSize.height / 40,
+                left: AppConstants.screenSize.width / 25,
+                right: AppConstants.screenSize.width / 25,
+                top: AppConstants.screenSize.height / 40,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkwell/linkwell.dart';
 
+import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
 
@@ -21,11 +22,10 @@ class _NewAccountFormState extends State<NewAccountForm> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Container(
       color: UiColors.backgroundColor,
-      height: screenSize.height / 1.8,
-      width: screenSize.width,
+      height: AppConstants.screenSize.height / 1.8,
+      width: AppConstants.screenSize.width,
       child: Form(
         key: _formKey,
         child: Column(
@@ -73,7 +73,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenSize.width / 50,
+                left: AppConstants.screenSize.width / 50,
               ),
               child: Row(
                 children: [
@@ -91,9 +91,9 @@ class _NewAccountFormState extends State<NewAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenSize.width / 55,
-                right: screenSize.width / 25,
-                top: screenSize.height / 90,
+                left: AppConstants.screenSize.width / 55,
+                right: AppConstants.screenSize.width / 25,
+                top: AppConstants.screenSize.height / 90,
               ),
               child: GradientElevatedButton(
                 bodercolor: const Color.fromARGB(255, 195, 175, 146),
@@ -126,9 +126,9 @@ class _NewAccountFormState extends State<NewAccountForm> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenSize.width / 25,
-                right: screenSize.width / 25,
-                top: screenSize.height / 50,
+                left: AppConstants.screenSize.width / 25,
+                right: AppConstants.screenSize.width / 25,
+                top: AppConstants.screenSize.height / 50,
               ),
               child: LinkWell(
                 "By creating an account,you agree to Amazon's https://seemanthsindhukuttan.github.io/#home and https://seemanthsindhukuttan.github.io/#about",

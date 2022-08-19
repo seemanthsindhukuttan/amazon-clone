@@ -14,8 +14,6 @@ class SginInOrCreate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -31,17 +29,17 @@ class SginInOrCreate extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: screenSize.height / 20),
+              SizedBox(height: AppConstants.screenSize.height / 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
                     AppConstants.amazonLogo,
-                    height: screenSize.height / 15,
+                    height: AppConstants.screenSize.height / 15,
                   ),
                 ],
               ),
-              SizedBox(height: screenSize.height / 20),
+              SizedBox(height: AppConstants.screenSize.height / 20),
               Center(
                 child: Text(
                   'Sign in to your account',
@@ -54,10 +52,10 @@ class SginInOrCreate extends StatelessWidget {
               const SignUpText(content: 'View your wish list'),
               const SignUpText(content: 'Find & reorder past purchases'),
               const SignUpText(content: 'Track your purchases'),
-              SizedBox(height: screenSize.height / 30),
+              SizedBox(height: AppConstants.screenSize.height / 30),
               Padding(
-                padding:
-                    EdgeInsets.only(left: screenSize.width / 50, right: 8.0),
+                padding: EdgeInsets.only(
+                    left: AppConstants.screenSize.width / 50, right: 8.0),
                 child: GradientElevatedButton(
                   bodercolor: const Color.fromARGB(255, 195, 175, 146),
                   borderRadius: BorderRadius.circular(9),
@@ -85,9 +83,9 @@ class SginInOrCreate extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: screenSize.width / 50,
+                    left: AppConstants.screenSize.width / 50,
                     right: 8.0,
-                    top: screenSize.height / 80),
+                    top: AppConstants.screenSize.height / 80),
                 child: GradientElevatedButton(
                   bodercolor: Colors.grey,
                   borderRadius: BorderRadius.circular(9),
@@ -114,10 +112,10 @@ class SginInOrCreate extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  left: screenSize.width / 50,
+                  left: AppConstants.screenSize.width / 50,
                   right: 8.0,
-                  top: screenSize.height / 80,
-                  bottom: screenSize.height / 80,
+                  top: AppConstants.screenSize.height / 80,
+                  bottom: AppConstants.screenSize.height / 80,
                 ),
                 child: GradientElevatedButton(
                   bodercolor: Colors.grey,

@@ -1,6 +1,13 @@
+import 'package:flutter/material.dart';
+
 class AppConstants {
+  // sizes==>
   static const double kAppBarHeight = 80;
 
+  static Size screenSize =
+      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size;
+
+  //<==sizes
   static const String amazonLogo = "assets/amazon_Log.svg";
 
   static const List<String> categoriesList = [
