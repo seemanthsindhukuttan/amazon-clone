@@ -10,7 +10,6 @@ import 'widgets/sign_in_form.dart';
 
 class UserAuthScreen extends StatelessWidget {
   UserAuthScreen({Key? key}) : super(key: key);
-
   final userAuthScreenController = Get.put(UserAuthScreenController());
 
   @override

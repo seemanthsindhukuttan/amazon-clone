@@ -1,7 +1,9 @@
-import 'package:amazon_clone/core/colors.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkwell/linkwell.dart';
+import '../../../controller/auth_screen_controller.dart';
+import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
@@ -15,9 +17,16 @@ class SiginAccountForm extends StatefulWidget {
 
 class _SiginAccountFormState extends State<SiginAccountForm> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
 
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final userAuthScreenController = Get.put(UserAuthScreenController());
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,19 +62,23 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                 }
               },
             ),
-            CustomTextFoemField(
-              controller: passwordController,
-              title: 'Amazon password',
-              obscureText: true,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Required Field';
-                } else if (value.length < 6) {
-                  return 'Incorrect password';
-                } else {
-                  return null;
-                }
-              },
+            Obx(
+              () => CustomTextFoemField(
+                controller: passwordController,
+                title: 'Amazon password',
+                obscureText: userAuthScreenController.showPassword.isFalse
+                    ? true
+                    : false,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Required Field';
+                  } else if (value.length < 6) {
+                    return 'Incorrect password';
+                  } else {
+                    return null;
+                  }
+                },
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -73,7 +86,14 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
               ),
               child: Row(
                 children: [
-                  Checkbox(onChanged: (v) {}, value: true),
+                  Obx(
+                    () => Checkbox(
+                      onChanged: (value) {
+                        userAuthScreenController.showPassword.value = value!;
+                      },
+                      value: userAuthScreenController.showPassword.value,
+                    ),
+                  ),
                   Text(
                     'Show password',
                     style: GoogleFonts.aBeeZee(

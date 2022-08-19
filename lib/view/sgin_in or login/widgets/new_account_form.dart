@@ -1,8 +1,9 @@
-import 'package:amazon_clone/core/colors.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkwell/linkwell.dart';
-
+import '../../../controller/auth_screen_controller.dart';
+import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
@@ -16,9 +17,17 @@ class NewAccountForm extends StatefulWidget {
 
 class _NewAccountFormState extends State<NewAccountForm> {
   final _formKey = GlobalKey<FormState>();
+  final userAuthScreenController = Get.put(UserAuthScreenController());
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,19 +66,23 @@ class _NewAccountFormState extends State<NewAccountForm> {
                 }
               },
             ),
-            CustomTextFoemField(
-              controller: passwordController,
-              title: 'Create a password',
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Required Field';
-                } else if (value.length < 6) {
-                  return 'Min 6 characters';
-                } else {
-                  return null;
-                }
-              },
-              obscureText: true,
+            Obx(
+              () => CustomTextFoemField(
+                controller: passwordController,
+                title: 'Create a password',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Required Field';
+                  } else if (value.length < 6) {
+                    return 'Min 6 characters';
+                  } else {
+                    return null;
+                  }
+                },
+                obscureText: userAuthScreenController.showPassword.isFalse
+                    ? true
+                    : false,
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -77,7 +90,14 @@ class _NewAccountFormState extends State<NewAccountForm> {
               ),
               child: Row(
                 children: [
-                  Checkbox(onChanged: (v) {}, value: true),
+                  Obx(
+                    () => Checkbox(
+                      onChanged: (value) {
+                        userAuthScreenController.showPassword.value = value!;
+                      },
+                      value: userAuthScreenController.showPassword.value,
+                    ),
+                  ),
                   Text(
                     'Show password',
                     style: GoogleFonts.aBeeZee(

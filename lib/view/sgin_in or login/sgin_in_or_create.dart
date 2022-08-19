@@ -1,13 +1,13 @@
-import 'package:amazon_clone/view/sgin_in%20or%20login/user_auth_screen_controller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../core/colors.dart';
-import '../../core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../widgets/gradient_button.dart';
 import 'widgets/signup_screen_text.dart';
+import '../../view/sgin_in%20or%20login/user_auth_screen_controller.dart';
+import '../../core/colors.dart';
+import '../../core/constants.dart';
+import '../../widgets/gradient_button.dart';
 
 class SginInOrCreate extends StatelessWidget {
   const SginInOrCreate({Key? key}) : super(key: key);
