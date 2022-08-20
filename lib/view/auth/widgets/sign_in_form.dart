@@ -7,6 +7,7 @@ import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
+import '../../home/home_screen.dart';
 
 class SiginAccountForm extends StatefulWidget {
   const SiginAccountForm({Key? key}) : super(key: key);
@@ -71,8 +72,6 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Password Required Field';
-                  } else if (value.length < 6) {
-                    return 'Incorrect password';
                   } else {
                     return null;
                   }
@@ -110,31 +109,56 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                 right: AppConstants.screenSize.width / 25,
                 top: AppConstants.screenSize.height / 40,
               ),
-              child: GradientElevatedButton(
-                bodercolor: const Color.fromARGB(255, 195, 175, 146),
-                borderRadius: BorderRadius.circular(5),
-                gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    //  Color(0xFFEEBA35),
-                    Color(0xFFF4D384),
-                    Color(0xFFF0BE42),
-                  ],
-                ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    emailController.clear();
-                    passwordController.clear();
-                  }
-                },
-                child: Text(
-                  'Continue',
-                  style: GoogleFonts.aBeeZee(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: UiColors.blackColor,
+              child: Obx(
+                () => GradientElevatedButton(
+                  bodercolor: const Color.fromARGB(255, 195, 175, 146),
+                  borderRadius: BorderRadius.circular(5),
+                  gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      //  Color(0xFFEEBA35),
+                      Color(0xFFF4D384),
+                      Color(0xFFF0BE42),
+                    ],
                   ),
+                  onPressed: () async {
+                    //! sign in button onpressed
+                    if (_formKey.currentState!.validate()) {
+                      //sign in method called
+                      final _response =
+                          await userAuthScreenController.sigInUser(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                      // check respose
+                      if (_response == true) {
+                        emailController.clear();
+                        passwordController.clear();
+                        //route to home
+                        Get.offAll(const HomeScreen());
+                      }
+                    }
+                    //! sign in button onpressed
+                  },
+                  child: userAuthScreenController.buttonLoading.isFalse
+                      ? Text(
+                          'Sign In',
+                          style: GoogleFonts.aBeeZee(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: UiColors.blackColor,
+                          ),
+                        )
+                      : const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: AspectRatio(
+                            aspectRatio: 1 / 1,
+                            child: CircularProgressIndicator(
+                              color: UiColors.backgroundColor,
+                            ),
+                          ),
+                        ),
                 ),
               ),
             ),

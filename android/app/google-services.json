@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "591088748034",
+    "project_id": "clone-bce5c",
+    "storage_bucket": "clone-bce5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591088748034:android:23c7b10e0656b5466ac91b",
+        "android_client_info": {
+          "package_name": "seemanth.app.amazon_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591088748034-kulv0qjitopk7vpoocl1buflj3gi3r52.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "seemanth.app.amazon_clone",
+            "certificate_hash": "f2c7017fe73f902abf96d07297857b1bd1825243"
+          }
+        },
+        {
+          "client_id": "591088748034-4ubo9j806rtjm8i9fqmenu5gp1ge7fcm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVmRy8N9k8uLObbTsD_9AeMuKYXwtRSl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591088748034-4ubo9j806rtjm8i9fqmenu5gp1ge7fcm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

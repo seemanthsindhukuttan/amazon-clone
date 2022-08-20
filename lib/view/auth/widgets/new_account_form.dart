@@ -7,6 +7,7 @@ import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
+import '../../home/home_screen.dart';
 
 class NewAccountForm extends StatefulWidget {
   const NewAccountForm({Key? key}) : super(key: key);
@@ -77,7 +78,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                   if (value == null || value.isEmpty) {
                     return 'Password Required Field';
                   } else if (value.length < 6) {
-                    return 'Min 6 characters';
+                    return 'Password should be at least 6 characters';
                   } else {
                     return null;
                   }
@@ -130,34 +131,59 @@ class _NewAccountFormState extends State<NewAccountForm> {
                 right: AppConstants.screenSize.width / 25,
                 top: AppConstants.screenSize.height * 0.02,
               ),
-              child: GradientElevatedButton(
-                bodercolor: const Color.fromARGB(255, 195, 175, 146),
-                borderRadius: BorderRadius.circular(5),
-                gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    //  Color(0xFFEEBA35),
-                    Color(0xFFF4D384),
-                    Color(0xFFF0BE42),
-                  ],
-                ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    nameController.clear();
-                    emailController.clear();
-                    passwordController.clear();
-                  }
-                },
-                child: Text(
-                  'Continue',
-                  style: GoogleFonts.aBeeZee(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: UiColors.blackColor,
-                  ),
-                ),
-              ),
+              child: Obx(() => GradientElevatedButton(
+                    bodercolor: const Color.fromARGB(255, 195, 175, 146),
+                    borderRadius: BorderRadius.circular(5),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFFF4D384),
+                        Color(0xFFF0BE42),
+                      ],
+                    ),
+                    onPressed: () async {
+                      //! Continue button onPress
+                      if (_formKey.currentState!.validate()) {
+                        //sign up method called
+                        final _response =
+                            await userAuthScreenController.sigUpUser(
+                          username: nameController.text,
+                          email: emailController.text,
+                          password: passwordController.text,
+                          address: addressController.text,
+                        );
+                        //check respose
+                        if (_response == true) {
+                          nameController.clear();
+                          emailController.clear();
+                          passwordController.clear();
+                          addressController.clear();
+                          // route to home
+                          Get.off(const HomeScreen());
+                        }
+                      }
+                      //! Continue button onPress
+                    },
+                    child: userAuthScreenController.buttonLoading.isFalse
+                        ? Text(
+                            'Continue',
+                            style: GoogleFonts.aBeeZee(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: UiColors.blackColor,
+                            ),
+                          )
+                        : const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: AspectRatio(
+                              aspectRatio: 1 / 1,
+                              child: CircularProgressIndicator(
+                                color: UiColors.backgroundColor,
+                              ),
+                            ),
+                          ),
+                  )),
             ),
             Padding(
               padding: EdgeInsets.only(
