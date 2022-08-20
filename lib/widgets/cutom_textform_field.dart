@@ -8,11 +8,13 @@ class CustomTextFoemField extends StatelessWidget {
     required this.title,
     this.obscureText = false,
     this.validator,
+    this.maxLines = 1,
   }) : super(key: key);
   final TextEditingController controller;
   final String title;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class CustomTextFoemField extends StatelessWidget {
             controller: controller,
             obscureText: obscureText,
             validator: validator,
+            maxLines: maxLines,
             // autovalidateMode: AutovalidateMode.onUserInteraction,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),

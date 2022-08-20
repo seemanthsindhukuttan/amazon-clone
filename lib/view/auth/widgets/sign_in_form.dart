@@ -17,7 +17,6 @@ class SiginAccountForm extends StatefulWidget {
 
 class _SiginAccountFormState extends State<SiginAccountForm> {
   final _formKey = GlobalKey<FormState>();
-
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final userAuthScreenController = Get.put(UserAuthScreenController());
@@ -48,13 +47,13 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
           children: [
             CustomTextFoemField(
               controller: emailController,
-              title: 'Email or phone number',
+              title: 'Email',
               validator: (value) {
                 Pattern pattern =
                     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
                 RegExp regex = RegExp('$pattern');
                 if (value == null || value.isEmpty) {
-                  return 'Required Field';
+                  return 'Email Required Field';
                 } else if (!(regex.hasMatch(value))) {
                   return 'Invalid Email';
                 } else {
@@ -71,7 +70,7 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                     : false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Required Field';
+                    return 'Password Required Field';
                   } else if (value.length < 6) {
                     return 'Incorrect password';
                   } else {

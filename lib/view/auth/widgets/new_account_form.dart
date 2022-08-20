@@ -21,11 +21,14 @@ class _NewAccountFormState extends State<NewAccountForm> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+
   @override
   void dispose() {
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    addressController.dispose();
     super.dispose();
   }
 
@@ -33,7 +36,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
   Widget build(BuildContext context) {
     return Container(
       color: UiColors.backgroundColor,
-      height: AppConstants.screenSize.height / 1.8,
+      height: AppConstants.screenSize.height * 0.73,
       width: AppConstants.screenSize.width,
       child: Form(
         key: _formKey,
@@ -44,7 +47,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
               title: 'First and last name',
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Required Field';
+                  return 'Name Required Field';
                 } else {
                   return null;
                 }
@@ -58,7 +61,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
                 RegExp regex = RegExp('$pattern');
                 if (value == null || value.isEmpty) {
-                  return 'Required Field';
+                  return 'Email Required Field';
                 } else if (!(regex.hasMatch(value))) {
                   return 'Invalid Email';
                 } else {
@@ -72,7 +75,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                 title: 'Create a password',
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Required Field';
+                    return 'Password Required Field';
                   } else if (value.length < 6) {
                     return 'Min 6 characters';
                   } else {
@@ -109,11 +112,23 @@ class _NewAccountFormState extends State<NewAccountForm> {
                 ],
               ),
             ),
+            CustomTextFoemField(
+              controller: addressController,
+              title: 'Address',
+              maxLines: 3,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Address Required Field';
+                } else {
+                  return null;
+                }
+              },
+            ),
             Padding(
               padding: EdgeInsets.only(
                 left: AppConstants.screenSize.width / 55,
                 right: AppConstants.screenSize.width / 25,
-                top: AppConstants.screenSize.height / 90,
+                top: AppConstants.screenSize.height * 0.02,
               ),
               child: GradientElevatedButton(
                 bodercolor: const Color.fromARGB(255, 195, 175, 146),

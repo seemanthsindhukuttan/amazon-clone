@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'widgets/signup_screen_text.dart';
-import '../../view/sgin_in%20or%20login/user_auth_screen_controller.dart';
+import 'widgets/text_signup_screen.dart';
+import '../auth/user_auth_screen.dart';
 import '../../core/colors.dart';
 import '../../core/constants.dart';
 import '../../widgets/gradient_button.dart';
@@ -69,7 +69,7 @@ class SginInOrCreate extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    Get.to(UserAuthScreen());
+                    Get.to(const UserAuthScreen());
                   },
                   child: Text(
                     'Already a customer?Sign in',
@@ -98,7 +98,11 @@ class SginInOrCreate extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    Get.to(UserAuthScreen());
+                    Get.to(
+                      const UserAuthScreen(
+                        routeToCreate: true,
+                      ),
+                    );
                   },
                   child: Text(
                     'New to Amazon.in? Create an account',

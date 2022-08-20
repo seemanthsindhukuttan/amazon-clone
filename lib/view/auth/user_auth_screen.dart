@@ -5,12 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'widgets/new_account_form.dart';
 import 'widgets/sign_in_form.dart';
 
-class UserAuthScreen extends StatelessWidget {
-  UserAuthScreen({Key? key}) : super(key: key);
+class UserAuthScreen extends StatefulWidget {
+  const UserAuthScreen({Key? key, this.routeToCreate = false})
+      : super(key: key);
+  final bool routeToCreate;
+
+  @override
+  State<UserAuthScreen> createState() => _UserAuthScreenState();
+}
+
+class _UserAuthScreenState extends State<UserAuthScreen> {
   final userAuthScreenController = Get.put(UserAuthScreenController());
+  @override
+  void initState() {
+    if (widget.routeToCreate == false) {
+      userAuthScreenController.showCreateAccount.value = false;
+    } else {
+      userAuthScreenController.showCreateAccount.value = true;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
