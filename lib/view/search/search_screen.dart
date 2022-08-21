@@ -2,8 +2,8 @@ import 'package:amazon_clone/core/constants.dart';
 import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,9 @@ class HomeScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(AppConstants.kAppBarHeight),
         child: SearchBarWidget(
-          isReadOnly: true,
+          showBackButton: true,
+          isReadOnly: false,
+          autofocus: true,
         ),
       ),
     );

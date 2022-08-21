@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppConstants {
   // sizes==>
-  static const double kAppBarHeight = 80;
+  static const double kAppBarHeight = 110;
 
   static Size screenSize =
       MediaQueryData.fromWindow(WidgetsBinding.instance.window).size;

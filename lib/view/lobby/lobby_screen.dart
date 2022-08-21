@@ -60,7 +60,7 @@ class _LobbyScreenState extends State<LobbyScreen> {
           valueListenable: _currentIndex,
           builder: (BuildContext context, int index, Widget? _) {
             return CustomBottomNavBar(
-              indicator: UiColors.activeCyanColor,
+              indicatorColor: UiColors.activeCyanColor,
               onTap: _changePage,
               tabs: [
                 Tab(

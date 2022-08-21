@@ -9,6 +9,13 @@ import 'view/sgin_in or login/sgin_in_or_create.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // transparent status bar
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ),
+  );
   await Firebase.initializeApp();
   runApp(const Amazon());
 }
@@ -28,30 +35,21 @@ class Amazon extends StatelessWidget {
           primary: UiColors.primaryColor,
         ),
       ),
-      home: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: const SystemUiOverlayStyle(
-          statusBarColor: UiColors.backgroundColor,
-          systemNavigationBarColor: UiColors.backgroundColor,
-          statusBarIconBrightness: Brightness.dark,
-          systemNavigationBarIconBrightness: Brightness.dark,
-        ),
-        child: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: Scaffold(
-                  body: CircularProgressIndicator(),
-                ),
-              );
-            } else if (snapshot.hasData) {
-              //FirebaseAuth.instance.signOut();
-              return const LobbyScreen();
-            } else {
-              return const SginInOrCreate();
-            }
-          },
-        ),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: Scaffold(
+                body: CircularProgressIndicator(),
+              ),
+            );
+          } else if (snapshot.hasData) {
+            return const LobbyScreen();
+          } else {
+            return const SginInOrCreate();
+          }
+        },
       ),
     );
   }

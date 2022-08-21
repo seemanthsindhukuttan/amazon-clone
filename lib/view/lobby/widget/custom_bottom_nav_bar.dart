@@ -3,11 +3,11 @@ import '../../../core/colors.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar(
-      {Key? key, required this.tabs, this.onTap, required this.indicator})
+      {Key? key, required this.tabs, this.onTap, required this.indicatorColor})
       : super(key: key);
   final List<Widget> tabs;
   final void Function(int)? onTap;
-  final Color indicator;
+  final Color indicatorColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,13 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
       ),
       child: TabBar(
-        indicatorColor: indicator,
+        indicatorColor: indicatorColor,
         indicatorSize: TabBarIndicatorSize.label,
         padding: const EdgeInsets.symmetric(horizontal: 10),
         indicator: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: indicator,
+              color: indicatorColor,
               width: 4.0,
             ),
           ),
