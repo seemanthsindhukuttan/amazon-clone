@@ -1,3 +1,4 @@
+import 'package:amazon_clone/view/lobby/lobby_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,6 @@ import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
-import '../../home/home_screen.dart';
 
 class NewAccountForm extends StatefulWidget {
   const NewAccountForm({Key? key}) : super(key: key);
@@ -160,7 +160,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                           passwordController.clear();
                           addressController.clear();
                           // route to home
-                          Get.off(const HomeScreen());
+                          Get.off(const LobbyScreen());
                         }
                       }
                       //! Continue button onPress

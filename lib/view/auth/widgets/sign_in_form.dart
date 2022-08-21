@@ -1,3 +1,4 @@
+import 'package:amazon_clone/view/lobby/lobby_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,6 @@ import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
-import '../../home/home_screen.dart';
 
 class SiginAccountForm extends StatefulWidget {
   const SiginAccountForm({Key? key}) : super(key: key);
@@ -136,7 +136,7 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                         emailController.clear();
                         passwordController.clear();
                         //route to home
-                        Get.offAll(const HomeScreen());
+                        Get.offAll(const LobbyScreen());
                       }
                     }
                     //! sign in button onpressed

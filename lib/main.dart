@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'view/home/home_screen.dart';
+import 'view/lobby/lobby_screen.dart';
 import 'view/sgin_in or login/sgin_in_or_create.dart';
 
 void main() async {
@@ -46,7 +46,7 @@ class Amazon extends StatelessWidget {
               );
             } else if (snapshot.hasData) {
               //FirebaseAuth.instance.signOut();
-              return const HomeScreen();
+              return const LobbyScreen();
             } else {
               return const SginInOrCreate();
             }

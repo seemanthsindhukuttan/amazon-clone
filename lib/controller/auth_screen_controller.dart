@@ -8,14 +8,25 @@ import '../view/auth/user_auth_screen.dart';
 class UserAuthScreenController extends GetxController {
   // create account form or signup form
   final RxBool _showCreateAccount = true.obs;
+
   // showpassword or hide
-  final RxBool showPassword = false.obs;
+  final RxBool _showPassword = false.obs;
+
   // loading signin
-  final RxBool buttonLoading = false.obs;
-  //getter showpassword or hide
+  final RxBool _buttonLoading = false.obs;
+
+  //getter create account form or signup form
   RxBool get showCreateAccount => _showCreateAccount;
+
+  //getter showpassword or hide
+  RxBool get showPassword => _showPassword;
+
+  //getter loading signin
+  RxBool get buttonLoading => _buttonLoading;
+
   // firebase auth instance
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
   // firebase cloud firestore instance
   final CollectionReference _collectionReference =
       FirebaseFirestore.instance.collection('users');
@@ -116,9 +127,8 @@ class UserAuthScreenController extends GetxController {
           "email": email,
         })
         .then((value) => log("User Added"))
-        .catchError((error) => print("Failed to add user: $error"));
+        .catchError((error) => log("Failed to add user: $error"));
   }
-
   //<==
 
 }
