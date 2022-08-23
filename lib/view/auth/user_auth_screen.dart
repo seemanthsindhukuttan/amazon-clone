@@ -73,7 +73,7 @@ class _UserAuthScreenState extends State<UserAuthScreen> {
                       decoration: BoxDecoration(
                         color: userAuthScreenController.showCreateAccount.isTrue
                             ? UiColors.backgroundColor
-                            : UiColors.greyLight,
+                            : UiColors.greyLight.withOpacity(0.1),
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),
@@ -136,7 +136,7 @@ class _UserAuthScreenState extends State<UserAuthScreen> {
                         color:
                             userAuthScreenController.showCreateAccount.isFalse
                                 ? UiColors.backgroundColor
-                                : UiColors.greyLight,
+                                : UiColors.greyLight.withOpacity(0.1),
                         borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(5),
                           bottomRight: Radius.circular(5),

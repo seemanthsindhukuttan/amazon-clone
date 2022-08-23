@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 class UiColors {
   static const Color primaryColor = Colors.orange; //orange
-
   static const Color activeCyanColor = Color(0xff0a7c97); // cyan
-
-  static const Color backgroundColor = Color(0xFFEBECEE); // white
+  static const Color backgroundColor = Color(0xFFEBECEE); //gerywhite mix
   static const Color blackColor = Colors.black; // black
-  static Color greyLight = Colors.grey.shade300; // white
+  static Color greyLight = Colors.grey; // gery
+  static Color white = Colors.white; // white
 
   static const List<Color> backgroundGradient = [
     Color(0xff80d9e9),

@@ -15,7 +15,7 @@ class CustomBottomNavBar extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: UiColors.greyLight,
+            color: UiColors.greyLight.withOpacity(0.5),
             width: 1.5,
           ),
         ),

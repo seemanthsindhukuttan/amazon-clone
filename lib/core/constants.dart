@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppConstants {
   // sizes==>
-  static const double kAppBarHeight = 110;
+  static const double kAppBarHeight = 100;
 
   static Size screenSize =
       MediaQueryData.fromWindow(WidgetsBinding.instance.window).size;
@@ -40,6 +40,10 @@ class AppConstants {
     "assets/largeAds/largeAds3.jpg",
     "assets/largeAds/largeAds4.jpg",
     "assets/largeAds/largeAds5.jpg",
+    "assets/largeAds/largeAds6.jpg",
+    "assets/largeAds/largeAds8.jpg",
+    "assets/largeAds/largeAds9.jpg",
+    "assets/largeAds/largeAds10.jpg",
   ];
 
   static const List<String> smallAds = [
@@ -47,6 +51,16 @@ class AppConstants {
     "assets/smallAds/smallAds2.jpg",
     "assets/smallAds/smallAds3.jpg",
     "assets/smallAds/smallAds4.jpg",
+    "assets/smallAds/smallAds5.jpg",
+    "assets/smallAds/smallAds6.jpg",
+    "assets/smallAds/smallAds7.jpg",
+    "assets/smallAds/smallAds8.jpg",
+    "assets/smallAds/smallAds9.jpg",
+    "assets/smallAds/smallAds10.jpg",
+    "assets/smallAds/smallAds11.jpg",
+    "assets/smallAds/smallAds13.jpg",
+    "assets/smallAds/smallAds14.jpg",
+    "assets/smallAds/smallAds15.jpg",
   ];
 
   static const List<String> adItemNames = [
@@ -55,7 +69,4 @@ class AppConstants {
     "Rewards",
     "Pay Bills"
   ];
-
-//   static const String amazonLogo =
-//       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png";
 }

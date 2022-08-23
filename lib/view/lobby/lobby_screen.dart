@@ -39,7 +39,7 @@ class _LobbyScreenState extends State<LobbyScreen> {
   } //<==
 
   // screens==>
-  final List<Widget> _screens = const [
+  final List<Widget> _screens = [
     HomeScreen(),
     AccountScreen(),
     CartScreen(),

@@ -5,6 +5,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
+
 # dependencies
 dependencies:
   flutter:
@@ -18,6 +19,7 @@ dependencies:
   firebase_auth: ^3.6.4
   firebase_core: ^1.21.0
   new_gradient_app_bar: ^0.2.0
+
 # dev_dependencies
 dev_dependencies:
   flutter_test:
@@ -29,6 +31,10 @@ flutter:
 # assets
   assets:
     - assets/
+    - assets/categoryLogos/
+    - assets/largeAds/
+    - assets/smallAds/
+
   
 
   
