@@ -10,7 +10,7 @@ class CategoryListViewBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      height: AppConstants.kAppBarHeight - 20,
+      height: AppConstants.kAppBarHeight * 1.2,
       width: AppConstants.screenSize.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -22,7 +22,7 @@ class CategoryListViewBar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(
                 left: 10,
-                top: 10,
+                top: 45,
                 right: 10,
               ),
               child: CircleAvatar(
