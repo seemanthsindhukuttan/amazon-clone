@@ -13,7 +13,7 @@ class GradientElevatedButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     required this.child,
-    required this.bodercolor,
+    this.bodercolor = Colors.transparent,
     this.borderRadius,
     this.width = double.infinity,
     this.height = 45,

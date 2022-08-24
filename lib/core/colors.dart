@@ -17,4 +17,8 @@ class UiColors {
     Color(0xffa2e0eb),
     Color.fromARGB(255, 200, 228, 218),
   ];
+  static const List<Color> PrimaryButtonGradient = [
+    Color(0xFFF4D384),
+    Color(0xFFF0BE42),
+  ];
 }

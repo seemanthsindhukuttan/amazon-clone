@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:amazon_clone/view/home/widgets/banner_ads.dart';
@@ -11,7 +9,7 @@ import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

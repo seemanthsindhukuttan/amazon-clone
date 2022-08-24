@@ -1,4 +1,6 @@
 import 'package:amazon_clone/core/colors.dart';
+import 'package:amazon_clone/view/account/account_screen.dart';
+import 'package:amazon_clone/view/cart/cart_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +47,9 @@ class Amazon extends StatelessWidget {
               ),
             );
           } else if (snapshot.hasData) {
-            return const LobbyScreen();
+            return const CartScreen();
+            //AccountScreen();
+            // LobbyScreen();
           } else {
             return const SginInOrCreate();
           }

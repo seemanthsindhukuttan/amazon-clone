@@ -30,7 +30,7 @@ flutter:
   uses-material-design: true
 # assets
   assets:
-    - assets/
+    - assets/amazon_Log.svg
     - assets/categoryLogos/
     - assets/largeAds/
     - assets/smallAds/
