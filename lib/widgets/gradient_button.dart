@@ -1,3 +1,4 @@
+import 'package:amazon_clone/core/colors.dart';
 import 'package:flutter/material.dart';
 
 class GradientElevatedButton extends StatelessWidget {
@@ -18,12 +19,10 @@ class GradientElevatedButton extends StatelessWidget {
     this.width = double.infinity,
     this.height = 45,
     this.gradient = const LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomLeft,
-        colors: [
-          Colors.cyan,
-          Colors.indigo,
-        ]),
+      colors: UiColors.PrimaryButtonGradient,
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    ),
   }) : super(key: key);
 
   @override

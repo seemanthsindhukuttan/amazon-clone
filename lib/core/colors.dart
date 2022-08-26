@@ -4,6 +4,7 @@ class UiColors {
   static const Color primaryColor = Colors.orange; //orange
   static const Color activeCyanColor = Color(0xff0a7c97); // cyan
   static const Color backgroundColor = Color(0xFFEBECEE); //gerywhite mix
+  static const Color whiteBackgroundColor = Colors.white; //white
   static const Color blackColor = Colors.black; // black
   static Color greyLight = Colors.grey; // gery
   static Color white = Colors.white; // white

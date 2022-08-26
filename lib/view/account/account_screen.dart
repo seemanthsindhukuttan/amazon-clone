@@ -90,6 +90,7 @@ class AccountScreen extends StatelessWidget {
                 width: AppConstants.screenSize.width / 1.3,
                 onPressed: () {
                   //! Sign Out button on pressed
+                  //TODO  on press Sign Out
                 },
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
@@ -100,7 +101,7 @@ class AccountScreen extends StatelessWidget {
                   'Sign Out',
                   style: GoogleFonts.aBeeZee(
                     // fontSize: 25,
-                    fontWeight: FontWeight.bold,
+
                     color: UiColors.blackColor,
                   ),
                 ),
@@ -115,6 +116,7 @@ class AccountScreen extends StatelessWidget {
                 width: AppConstants.screenSize.width / 1.3,
                 onPressed: () {
                   //! Sell button on pressed
+                  //TODO  on press Sell button
                 },
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
@@ -124,8 +126,6 @@ class AccountScreen extends StatelessWidget {
                 child: Text(
                   'Sell',
                   style: GoogleFonts.aBeeZee(
-                    // fontSize: 25,
-                    fontWeight: FontWeight.bold,
                     color: UiColors.blackColor,
                   ),
                 ),

@@ -47,9 +47,7 @@ class Amazon extends StatelessWidget {
               ),
             );
           } else if (snapshot.hasData) {
-            return const CartScreen();
-            //AccountScreen();
-            // LobbyScreen();
+            return const LobbyScreen();
           } else {
             return const SginInOrCreate();
           }
