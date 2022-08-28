@@ -17,7 +17,7 @@ class ProductShowCaseListView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 0, top: 10),
       child: Container(
-        height: AppConstants.screenSize.height / 3.6,
+        height: AppConstants.screenSize.height / 3,
         width: AppConstants.screenSize.width,
         decoration: BoxDecoration(
           color: UiColors.white,

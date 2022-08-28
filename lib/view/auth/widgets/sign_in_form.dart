@@ -1,4 +1,4 @@
-import 'package:amazon_clone/view/lobby/lobby_screen.dart';
+import 'package:amazon_clone/layout/lobby_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -136,7 +136,7 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                         emailController.clear();
                         passwordController.clear();
                         //route to home
-                        Get.offAll(const LobbyScreen());
+                        Get.offAll(const LayoutScreen());
                       }
                     }
                     //! sign in button onpressed

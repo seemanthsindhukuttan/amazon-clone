@@ -2,18 +2,19 @@ import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/view/account/account_screen.dart';
 import 'package:amazon_clone/view/cart/cart_screen.dart';
 import 'package:amazon_clone/view/home/home_screen.dart';
-import 'package:amazon_clone/view/lobby/widget/custom_bottom_nav_bar.dart';
-import 'package:amazon_clone/view/menu/menu_screen.dart';
+import 'package:amazon_clone/view/more/more_screen.dart';
 import 'package:flutter/material.dart';
 
-class LobbyScreen extends StatefulWidget {
-  const LobbyScreen({Key? key}) : super(key: key);
+import 'widget/custom_bottom_nav_bar.dart';
+
+class LayoutScreen extends StatefulWidget {
+  const LayoutScreen({Key? key}) : super(key: key);
 
   @override
-  State<LobbyScreen> createState() => _LobbyScreenState();
+  State<LayoutScreen> createState() => _LayoutScreenState();
 }
 
-class _LobbyScreenState extends State<LobbyScreen> {
+class _LayoutScreenState extends State<LayoutScreen> {
   // pagecontroller.
   late final PageController _pageController;
 
@@ -40,10 +41,10 @@ class _LobbyScreenState extends State<LobbyScreen> {
 
   // screens==>
   final List<Widget> _screens = [
-    HomeScreen(),
-    AccountScreen(),
-    CartScreen(),
-    MenuScreen(),
+    const HomeScreen(),
+    const AccountScreen(),
+    const CartScreen(),
+    const MoreScreen(),
   ]; //<==
 
   @override

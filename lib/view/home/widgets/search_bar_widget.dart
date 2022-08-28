@@ -10,12 +10,12 @@ class SearchBarWidget extends StatelessWidget {
     this.isReadOnly = false,
     this.showBackButton = false,
     this.autofocus = false,
-    this.controller,
+    this.onSubmitted,
   }) : super(key: key);
   final bool isReadOnly;
   final bool showBackButton;
   final bool autofocus;
-  final TextEditingController? controller;
+  final void Function(String value)? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class SearchBarWidget extends StatelessWidget {
                 onTap: () => Get.to(
                   const SearchScreen(),
                 ),
-                controller: controller,
+                onFieldSubmitted: onSubmitted,
                 readOnly: isReadOnly,
                 autofocus: autofocus,
                 textAlignVertical: TextAlignVertical.center,

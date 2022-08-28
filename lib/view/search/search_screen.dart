@@ -1,32 +1,27 @@
+import 'dart:developer';
+
 import 'package:amazon_clone/core/constants.dart';
 import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
+import 'package:amazon_clone/view/search_result/result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SearchScreen> createState() => _SearchScreenState();
-}
-
-class _SearchScreenState extends State<SearchScreen> {
-  TextEditingController searchController = TextEditingController();
-  @override
-  void dispose() {
-    searchController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(AppConstants.kAppBarHeight),
+        preferredSize: Size.fromHeight(AppConstants.kAppBarHeight),
         child: SearchBarWidget(
           showBackButton: true,
           isReadOnly: false,
           autofocus: true,
-          controller: searchController,
+          onSubmitted: (query) {
+            Get.to(ResultScreen(query: query));
+            log(query);
+          },
         ),
       ),
     );

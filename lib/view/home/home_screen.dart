@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:amazon_clone/view/home/widgets/banner_ads.dart';
@@ -6,7 +8,10 @@ import 'package:amazon_clone/view/home/widgets/location_bar_widget.dart';
 import 'package:amazon_clone/view/home/widgets/product_show_card.dart';
 import 'package:amazon_clone/view/home/widgets/product_showcase_List_view.dart';
 import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
+import 'package:amazon_clone/view/search_result/result_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,8 +21,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController _searchEditingController =
-      TextEditingController();
   late ScrollController _scrollController;
   final ValueNotifier<double> _offset = ValueNotifier(0);
   @override
@@ -38,12 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(AppConstants.kAppBarHeight),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(AppConstants.kAppBarHeight),
         child: SearchBarWidget(
           isReadOnly: true,
           autofocus: false,
-          controller: _searchEditingController,
         ),
       ),
       body: SingleChildScrollView(

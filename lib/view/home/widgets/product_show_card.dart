@@ -1,3 +1,4 @@
+import 'package:amazon_clone/core/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductShowCardWidget extends StatelessWidget {
@@ -12,27 +13,26 @@ class ProductShowCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      width: 180,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              productName,
-              textAlign: TextAlign.start,
-            ),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 9),
+          child: Text(
+            productName,
+            textAlign: TextAlign.start,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10, right: 15),
-            child: Image.asset(
-              image,
-              fit: BoxFit.contain,
-            ),
-          )
-        ],
-      ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 10, right: 15),
+          child: Image.asset(
+            height: AppConstants.screenSize.height * 0.2,
+            image,
+            fit: BoxFit.contain,
+          ),
+        )
+      ],
     );
   }
 }

@@ -16,8 +16,6 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  final TextEditingController _searchEditingController =
-      TextEditingController();
   late ScrollController _scrollController;
   final ValueNotifier<double> _offset = ValueNotifier(0);
   @override
@@ -39,12 +37,11 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: UiColors.whiteBackgroundColor,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(AppConstants.kAppBarHeight),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(AppConstants.kAppBarHeight),
         child: SearchBarWidget(
           isReadOnly: true,
           autofocus: false,
-          controller: _searchEditingController,
         ),
       ),
       body: SingleChildScrollView(

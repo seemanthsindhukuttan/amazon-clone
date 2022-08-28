@@ -1,4 +1,4 @@
-import 'package:amazon_clone/view/lobby/lobby_screen.dart';
+import 'package:amazon_clone/layout/lobby_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -160,7 +160,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                           passwordController.clear();
                           addressController.clear();
                           // route to home
-                          Get.off(const LobbyScreen());
+                          Get.off(const LayoutScreen());
                         }
                       }
                       //! Continue button onPress
