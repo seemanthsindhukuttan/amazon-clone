@@ -81,7 +81,7 @@ class _CartScreenState extends State<CartScreen> {
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
-                    final _product = ProductModel(
+                    final product = ProductModel(
                       uid: '1',
                       productName: 'nike shoe',
                       imageUrl: 'assets/nike_shoe.jpg',
@@ -94,10 +94,10 @@ class _CartScreenState extends State<CartScreen> {
                     );
 
                     return CartTileWidget(
-                      productName: _product.productName,
-                      price: _product.price.toString(),
-                      buyerName: _product.sellerName,
-                      imageUrl: _product.imageUrl,
+                      productName: product.productName,
+                      price: product.price.toString(),
+                      buyerName: product.sellerName,
+                      imageUrl: product.imageUrl,
                       deletebutton: () {},
                       saveForLaterbutton: () {},
                       productIncrementButton: () {},

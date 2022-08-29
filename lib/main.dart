@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'layout/lobby_screen.dart';
-import 'view/more/more_screen.dart';
 import 'view/sgin_in or login/sgin_in_or_create.dart';
 
 void main() async {

@@ -138,7 +138,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                       //! Continue button onPress
                       if (_formKey.currentState!.validate()) {
                         //sign up method called
-                        final _response =
+                        final response =
                             await userAuthScreenController.sigUpUser(
                           username: nameController.text,
                           email: emailController.text,
@@ -146,7 +146,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                           address: addressController.text,
                         );
                         //check respose
-                        if (_response == true) {
+                        if (response == true) {
                           nameController.clear();
                           emailController.clear();
                           passwordController.clear();

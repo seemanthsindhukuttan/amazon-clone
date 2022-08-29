@@ -54,7 +54,7 @@ class UserAuthScreenController extends GetxController {
       required String address}) async {
     try {
       buttonLoading.value = true;
-      final UserCredential _userCredential =
+      final UserCredential userCredential =
           await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -65,10 +65,10 @@ class UserAuthScreenController extends GetxController {
         content: 'Your Amazon account has been created.',
       );
       //upload to firestore
-      await _UploadUserData(
+      await _uploadUserData(
         username: username,
         address: address,
-        email: '${_userCredential.user?.email}',
+        email: '${userCredential.user?.email}',
       );
 
       return true;
@@ -115,7 +115,7 @@ class UserAuthScreenController extends GetxController {
   } //<==
 
   // upload User data to firestore ==>
-  Future<void> _UploadUserData(
+  Future<void> _uploadUserData(
       {required String username,
       required String address,
       required String email}) async {

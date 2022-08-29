@@ -64,7 +64,16 @@ class ResultScreen extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return SearchProductTile(
                   ontap: () {
-                    Get.to(const ProductDetialScreen());
+                    Get.to(const ProductDetialScreen(
+                      sellerName: 'seemanth',
+                      productName: 'nike shoe',
+                      price: 1000,
+                      imageUrl: 'assets/nike_shoe.jpg',
+                      reviewerName: 'liya',
+                      rating: 4,
+                      comments: 'good product',
+                      custmorRating: 4,
+                    ));
                   },
                   price: 1000,
                   brandName: 'nike',

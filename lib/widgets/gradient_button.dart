@@ -19,7 +19,7 @@ class GradientElevatedButton extends StatelessWidget {
     this.width = double.infinity,
     this.height = 45,
     this.gradient = const LinearGradient(
-      colors: UiColors.PrimaryButtonGradient,
+      colors: UiColors.primaryButtonGradient,
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
     ),

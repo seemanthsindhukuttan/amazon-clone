@@ -18,7 +18,7 @@ dependencies:
   cloud_firestore: ^3.4.5
   firebase_auth: ^3.6.4
   firebase_core: ^1.21.0
-  new_gradient_app_bar: ^0.2.0
+  rating_dialog: ^2.0.4
 
 # dev_dependencies
 dev_dependencies:

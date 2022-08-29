@@ -95,7 +95,7 @@ class AccountScreen extends StatelessWidget {
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: UiColors.PrimaryButtonGradient,
+                  colors: UiColors.primaryButtonGradient,
                 ),
                 child: Text(
                   'Sign Out',
@@ -121,7 +121,7 @@ class AccountScreen extends StatelessWidget {
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: UiColors.PrimaryButtonGradient,
+                  colors: UiColors.primaryButtonGradient,
                 ),
                 child: Text(
                   'Sell',

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 class RatingStarWidget extends StatelessWidget {
   final int rating;
-  final int ratingCount;
-  const RatingStarWidget(
-      {Key? key, required this.rating, required this.ratingCount})
-      : super(key: key);
+
+  const RatingStarWidget({
+    Key? key,
+    required this.rating,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class RatingStarWidget extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.only(left: 10),
         child: Text(
-          ratingCount.toString(),
+          rating.toString(),
           style: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.bold,

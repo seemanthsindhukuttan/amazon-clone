@@ -1,7 +1,7 @@
 import 'package:amazon_clone/view/product_detial/widgets/product_review_widget.dart';
+import 'package:amazon_clone/view/product_detial/widgets/rating_dialog.dart';
 import 'package:amazon_clone/view/search_result/widgets/rating_star.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/colors.dart';
 import '../../core/constants.dart';
@@ -10,7 +10,25 @@ import '../home/widgets/location_bar_widget.dart';
 import '../home/widgets/search_bar_widget.dart';
 
 class ProductDetialScreen extends StatefulWidget {
-  const ProductDetialScreen({Key? key}) : super(key: key);
+  const ProductDetialScreen({
+    Key? key,
+    required this.sellerName,
+    required this.productName,
+    required this.price,
+    required this.imageUrl,
+    required this.reviewerName,
+    required this.rating,
+    required this.comments,
+    required this.custmorRating,
+  }) : super(key: key);
+  final String sellerName;
+  final String productName;
+  final double price;
+  final String imageUrl;
+  final String reviewerName;
+  final int rating;
+  final int custmorRating;
+  final String comments;
 
   @override
   State<ProductDetialScreen> createState() => _ProductDetialScreenState();
@@ -66,16 +84,15 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'seller name',
+                        widget.sellerName,
                         style: GoogleFonts.aBeeZee(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: UiColors.activeCyanColor,
                         ),
                       ),
-                      const RatingStarWidget(
-                        rating: 5,
-                        ratingCount: 5,
+                      RatingStarWidget(
+                        rating: widget.rating,
                       ),
                     ],
                   ),
@@ -86,7 +103,7 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                     vertical: AppConstants.screenSize.width * 0.04,
                   ),
                   child: Text(
-                    'Nike Air Zoom Pegasus 37 Mens TECH Running',
+                    widget.productName,
                     style: GoogleFonts.aBeeZee(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -110,7 +127,7 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: Image.asset(
-                    'assets/nike_shoe.jpg',
+                    widget.imageUrl,
                     height: AppConstants.screenSize.height / 4,
                   ),
                 ),
@@ -126,7 +143,7 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                       ),
                     ),
                     Text(
-                      '₹8,314.00',
+                      '₹${widget.price}',
                       style: GoogleFonts.aBeeZee(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -162,7 +179,7 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                     gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: UiColors.PrimaryButtonGradient,
+                      colors: UiColors.primaryButtonGradient,
                     ),
                     child: Text(
                       'Buy Now',
@@ -187,7 +204,7 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                     gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: UiColors.PrimaryButtonGradient,
+                      colors: UiColors.primaryButtonGradient,
                     ),
                     child: Text(
                       'Add to cart',
@@ -203,9 +220,40 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                   padding: EdgeInsets.only(
                     top: AppConstants.screenSize.height * 0.02,
                     left: AppConstants.screenSize.width * 0.03,
-                    bottom: AppConstants.screenSize.height * 0.03,
+                  ),
+                  child: TextButton.icon(
+                    style: ButtonStyle(
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => const RatingDialogWidget(),
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.rate_review,
+                      color: UiColors.activeCyanColor,
+                    ),
+                    label: const Text(
+                      'Add review for this product',
+                      style: TextStyle(
+                        color: UiColors.activeCyanColor,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: AppConstants.screenSize.width * 0.03,
                   ),
                   child: TextButton(
+                    style: ButtonStyle(
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
+                    ),
                     onPressed: () {},
                     child: const Text(
                       'Show reviews',
@@ -225,14 +273,14 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                         separatorBuilder: (context, index) =>
                             const Divider(thickness: 0.5),
                         itemBuilder: (BuildContext context, int index) {
-                          return const Padding(
-                            padding: EdgeInsets.only(
+                          return Padding(
+                            padding: const EdgeInsets.only(
                               left: 20,
                             ),
                             child: ProductReviewWidget(
-                              customerName: 'Seemanth',
-                              comments: 'good product, bulid quality  is super',
-                              rating: 4,
+                              customerName: widget.reviewerName,
+                              comments: widget.comments,
+                              rating: widget.custmorRating,
                             ),
                           );
                         },

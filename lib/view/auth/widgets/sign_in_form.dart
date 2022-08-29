@@ -117,13 +117,12 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                     //! sign in button onpressed
                     if (_formKey.currentState!.validate()) {
                       //sign in method called
-                      final _response =
-                          await userAuthScreenController.sigInUser(
+                      final response = await userAuthScreenController.sigInUser(
                         email: emailController.text,
                         password: passwordController.text,
                       );
                       // check respose
-                      if (_response == true) {
+                      if (response == true) {
                         emailController.clear();
                         passwordController.clear();
                         //route to home

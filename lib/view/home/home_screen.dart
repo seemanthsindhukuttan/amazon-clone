@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:amazon_clone/view/home/widgets/banner_ads.dart';
@@ -8,8 +6,7 @@ import 'package:amazon_clone/view/home/widgets/location_bar_widget.dart';
 import 'package:amazon_clone/view/home/widgets/product_show_card.dart';
 import 'package:amazon_clone/view/home/widgets/product_showcase_List_view.dart';
 import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
-import 'package:amazon_clone/view/search_result/result_screen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:amazon_clone/view/product_detial/product_detial_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -61,6 +58,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const LargeBannerAdsWidget(),
                 ProductShowCaseListView(
+                  onTap: () => Get.to(const ProductDetialScreen(
+                    sellerName: 'seemanth',
+                    productName: 'nike shoe',
+                    price: 1000,
+                    imageUrl: 'assets/nike_shoe.jpg',
+                    reviewerName: 'liya',
+                    rating: 4,
+                    comments: 'good product',
+                    custmorRating: 4,
+                  )),
                   title: 'Upto 10% Off',
                   listView: ListView.builder(
                     scrollDirection: Axis.horizontal,

@@ -19,7 +19,7 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    OutlineInputBorder _border = OutlineInputBorder(
+    OutlineInputBorder border = OutlineInputBorder(
       borderRadius: const BorderRadius.all(
         Radius.circular(6),
       ),
@@ -86,9 +86,9 @@ class SearchBarWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   isDense: true,
                   filled: true,
-                  border: _border,
-                  focusedBorder: _border,
-                  enabledBorder: _border,
+                  border: border,
+                  focusedBorder: border,
+                  enabledBorder: border,
                   contentPadding: EdgeInsets.zero,
                   fillColor: UiColors.backgroundColor,
                   prefixIcon: const Icon(

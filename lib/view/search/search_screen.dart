@@ -13,7 +13,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(AppConstants.kAppBarHeight),
+        preferredSize: const Size.fromHeight(AppConstants.kAppBarHeight),
         child: SearchBarWidget(
           showBackButton: true,
           isReadOnly: false,

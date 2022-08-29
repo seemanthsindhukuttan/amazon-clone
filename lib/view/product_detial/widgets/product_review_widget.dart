@@ -36,7 +36,6 @@ class ProductReviewWidget extends StatelessWidget {
             children: [
               RatingStarWidget(
                 rating: rating,
-                ratingCount: rating,
               ),
               const SizedBox(
                 width: 10,
