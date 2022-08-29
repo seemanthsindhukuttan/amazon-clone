@@ -50,7 +50,7 @@ class SearchProductTile extends StatelessWidget {
             ),
             const RatingStarWidget(
               rating: 1,
-              ratingCount: 1.1,
+              ratingCount: 1,
             ),
             Text(
               '₹ $price',

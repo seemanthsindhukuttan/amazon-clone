@@ -134,14 +134,6 @@ class _NewAccountFormState extends State<NewAccountForm> {
               child: Obx(() => GradientElevatedButton(
                     bodercolor: const Color.fromARGB(255, 195, 175, 146),
                     borderRadius: BorderRadius.circular(5),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFFF4D384),
-                        Color(0xFFF0BE42),
-                      ],
-                    ),
                     onPressed: () async {
                       //! Continue button onPress
                       if (_formKey.currentState!.validate()) {

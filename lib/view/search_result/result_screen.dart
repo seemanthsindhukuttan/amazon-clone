@@ -1,7 +1,9 @@
 import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
+import 'package:amazon_clone/view/product_detial/product_detial_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'widgets/search_product_tile.dart';
@@ -61,7 +63,9 @@ class ResultScreen extends StatelessWidget {
               itemCount: 20,
               itemBuilder: (BuildContext context, int index) {
                 return SearchProductTile(
-                  ontap: () {},
+                  ontap: () {
+                    Get.to(const ProductDetialScreen());
+                  },
                   price: 1000,
                   brandName: 'nike',
                   productImage: Image.asset('assets/nike_shoe.jpg'),

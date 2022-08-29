@@ -113,15 +113,6 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                 () => GradientElevatedButton(
                   bodercolor: const Color.fromARGB(255, 195, 175, 146),
                   borderRadius: BorderRadius.circular(5),
-                  gradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      //  Color(0xFFEEBA35),
-                      Color(0xFFF4D384),
-                      Color(0xFFF0BE42),
-                    ],
-                  ),
                   onPressed: () async {
                     //! sign in button onpressed
                     if (_formKey.currentState!.validate()) {

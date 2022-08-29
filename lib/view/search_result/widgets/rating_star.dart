@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class RatingStarWidget extends StatelessWidget {
   final int rating;
-  final double ratingCount;
+  final int ratingCount;
   const RatingStarWidget(
       {Key? key, required this.rating, required this.ratingCount})
       : super(key: key);
@@ -26,7 +26,7 @@ class RatingStarWidget extends StatelessWidget {
     }
     children.add(
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 3),
+        padding: const EdgeInsets.only(left: 10),
         child: Text(
           ratingCount.toString(),
           style: const TextStyle(

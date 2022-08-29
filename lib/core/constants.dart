@@ -69,4 +69,12 @@ class AppConstants {
     "Rewards",
     "Pay Bills"
   ];
+
+  static const List<String> keyOfReview = [
+    "Very bad ",
+    "Poor",
+    "Average",
+    "Good",
+    "Excellent",
+  ];
 }

@@ -59,15 +59,6 @@ class SginInOrCreate extends StatelessWidget {
                 child: GradientElevatedButton(
                   bodercolor: const Color.fromARGB(255, 195, 175, 146),
                   borderRadius: BorderRadius.circular(9),
-                  gradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      //  Color(0xFFEEBA35),
-                      Color(0xFFF4D384),
-                      Color(0xFFF0BE42),
-                    ],
-                  ),
                   onPressed: () {
                     //! Already a customer?Sign in button.
                     Get.to(const UserAuthScreen());

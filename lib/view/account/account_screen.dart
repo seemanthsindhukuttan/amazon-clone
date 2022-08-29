@@ -162,7 +162,11 @@ class AccountScreen extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(
-                    left: 10, right: 10, bottom: 5, top: 10),
+                  left: 10,
+                  right: 10,
+                  bottom: 5,
+                  top: 10,
+                ),
                 child: Container(
                   decoration: const BoxDecoration(
                     color: Colors.white,
