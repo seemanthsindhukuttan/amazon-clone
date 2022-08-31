@@ -45,7 +45,7 @@ class Amazon extends StatelessWidget {
               ),
             );
           } else if (snapshot.hasData) {
-            // FirebaseAuth.instance.signOut();
+            //FirebaseAuth.instance.signOut();
             return const LayoutScreen();
           } else {
             return const SginInOrCreate();

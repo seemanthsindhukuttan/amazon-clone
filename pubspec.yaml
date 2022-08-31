@@ -19,6 +19,8 @@ dependencies:
   firebase_auth: ^3.6.4
   firebase_core: ^1.21.0
   rating_dialog: ^2.0.4
+  image_picker: ^0.8.5+3
+  permission_handler: ^10.0.0
 
 # dev_dependencies
 dev_dependencies:
@@ -31,6 +33,7 @@ flutter:
 # assets
   assets:
     - assets/
+    - assets/images/
     - assets/categoryLogos/
     - assets/largeAds/
     - assets/smallAds/

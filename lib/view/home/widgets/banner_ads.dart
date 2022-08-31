@@ -1,7 +1,6 @@
 import 'dart:async';
-
-import 'package:amazon_clone/core/colors.dart';
-import 'package:amazon_clone/core/constants.dart';
+import '../../../core/colors.dart';
+import '../../../core/constants.dart';
 import 'package:flutter/material.dart';
 
 class LargeBannerAdsWidget extends StatefulWidget {

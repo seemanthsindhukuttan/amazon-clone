@@ -1,9 +1,12 @@
 import 'package:amazon_clone/core/constants.dart';
-import 'package:amazon_clone/view/account/widgets/appbar_widget.dart';
+import 'package:amazon_clone/widgets/appbar_widget.dart';
+import 'package:amazon_clone/view/selling/selling_screen.dart';
+import 'package:amazon_clone/view/sgin_in%20or%20login/sgin_in_or_create.dart';
 import 'package:amazon_clone/widgets/gradient_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../core/colors.dart';
 import '../home/widgets/product_show_card.dart';
 import '../home/widgets/product_showcase_List_view.dart';
@@ -69,12 +72,18 @@ class AccountScreen extends StatelessWidget {
                       padding: EdgeInsets.only(
                         right: AppConstants.screenSize.width / 50,
                       ),
-                      child: const CircleAvatar(
-                        radius: 25,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(
-                            'https://images.unsplash.com/photo-1604004555489-723a93d6ce74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-                            scale: 1 / 1),
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundColor: UiColors.whiteBackgroundColor,
+                        child: IconButton(
+                          splashRadius: 1,
+                          color: UiColors.greyLight,
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.person,
+                            size: 30,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -90,7 +99,8 @@ class AccountScreen extends StatelessWidget {
                 width: AppConstants.screenSize.width / 1.3,
                 onPressed: () {
                   //! Sign Out button on pressed
-                  //TODO  on press Sign Out
+                  FirebaseAuth.instance.signOut();
+                  Get.off(const SginInOrCreate());
                 },
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
@@ -116,7 +126,7 @@ class AccountScreen extends StatelessWidget {
                 width: AppConstants.screenSize.width / 1.3,
                 onPressed: () {
                   //! Sell button on pressed
-                  //TODO  on press Sell button
+                  Get.to(const SellingScreen());
                 },
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,

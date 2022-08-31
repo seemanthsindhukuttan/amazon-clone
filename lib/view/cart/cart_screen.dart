@@ -3,8 +3,10 @@ import 'package:amazon_clone/model/product_model.dart';
 import 'package:amazon_clone/view/cart/widget/cart_tile.dart';
 import 'package:amazon_clone/view/home/widgets/location_bar_widget.dart';
 import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
+import 'package:amazon_clone/view/product_detial/product_detial_screen.dart';
 import 'package:amazon_clone/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/colors.dart';
 
@@ -92,17 +94,32 @@ class _CartScreenState extends State<CartScreen> {
                       rating: 5,
                       ratingCount: 200,
                     );
+                    //TODO:remove last
 
-                    return CartTileWidget(
-                      productName: product.productName,
-                      price: product.price.toString(),
-                      buyerName: product.sellerName,
-                      imageUrl: product.imageUrl,
-                      deletebutton: () {},
-                      saveForLaterbutton: () {},
-                      productIncrementButton: () {},
-                      productdecrementButton: () {},
-                      seenMoreLikeThisButton: () {},
+                    return GestureDetector(
+                      onTap: () {
+                        Get.to(const ProductDetialScreen(
+                          sellerName: 'seemanth',
+                          productName: 'nike shoe',
+                          price: 1000,
+                          imageUrl: 'assets/nike_shoe.jpg',
+                          reviewerName: 'liya',
+                          rating: 4,
+                          comments: 'good product',
+                          custmorRating: 4,
+                        ));
+                      },
+                      child: CartTileWidget(
+                        productName: product.productName,
+                        price: product.price.toString(),
+                        buyerName: product.sellerName,
+                        imageUrl: product.imageUrl,
+                        deletebutton: () {},
+                        saveForLaterbutton: () {},
+                        productIncrementButton: () {},
+                        productdecrementButton: () {},
+                        seenMoreLikeThisButton: () {},
+                      ),
                     );
                   },
                 ),

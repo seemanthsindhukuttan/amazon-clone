@@ -1,4 +1,4 @@
-import 'package:amazon_clone/controller/auth_screen_controller.dart';
+import 'package:amazon_clone/controller/auth_controller.dart';
 import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:flutter/material.dart';

@@ -85,10 +85,7 @@ class SginInOrCreate extends StatelessWidget {
                   gradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [
-                      UiColors.backgroundColor,
-                      Color.fromARGB(255, 221, 221, 221)
-                    ],
+                    colors: UiColors.secondaryButtonGradient,
                   ),
                   onPressed: () {
                     //! New to Amazon.in? Create an account'

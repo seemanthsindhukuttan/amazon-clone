@@ -8,7 +8,8 @@ class AppConstants {
       MediaQueryData.fromWindow(WidgetsBinding.instance.window).size;
 
   //<==sizes
-  static const String amazonLogo = "assets/amazon_Log.svg";
+  static const String amazonLogo = "assets/images/amazon_Log.svg";
+  static const String defaultImage = "assets/images/default-image.png";
 
   static const List<String> categoriesList = [
     "Prime",

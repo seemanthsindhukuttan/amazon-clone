@@ -1,7 +1,9 @@
-import 'package:amazon_clone/core/constants.dart';
+import '../../../core/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../core/colors.dart';
+import '../../search_result/result_screen.dart';
 
 class CategoryListViewBar extends StatelessWidget {
   const CategoryListViewBar({Key? key}) : super(key: key);
@@ -15,39 +17,48 @@ class CategoryListViewBar extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: AppConstants.categoriesList.length,
-        itemBuilder: (context, index) => Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 10,
-                top: 45,
-                right: 10,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            Get.to(
+              ResultScreen(
+                query: AppConstants.categoriesList[index],
               ),
-              child: CircleAvatar(
-                minRadius: 23,
-                backgroundImage: AssetImage(
-                  AppConstants.categoryLogos[index],
+            );
+          },
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 10,
+                  top: 45,
+                  right: 10,
+                ),
+                child: CircleAvatar(
+                  minRadius: 23,
+                  backgroundImage: AssetImage(
+                    AppConstants.categoryLogos[index],
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 10,
-                top: 2,
-                right: 10,
-              ),
-              child: Text(
-                AppConstants.categoriesList[index],
-                textAlign: TextAlign.center,
-                style: GoogleFonts.aBeeZee(
-                  fontWeight: FontWeight.w500,
-                  color: UiColors.blackColor,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 10,
+                  top: 2,
+                  right: 10,
+                ),
+                child: Text(
+                  AppConstants.categoriesList[index],
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.aBeeZee(
+                    fontWeight: FontWeight.w500,
+                    color: UiColors.blackColor,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

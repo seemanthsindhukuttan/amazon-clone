@@ -1,8 +1,9 @@
-import 'package:amazon_clone/core/constants.dart';
-import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
+import '../../core/constants.dart';
+import '../../view/home/widgets/search_bar_widget.dart';
+import '../../view/search_result/result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../core/colors.dart';
 
 class MoreScreen extends StatelessWidget {
@@ -28,7 +29,13 @@ class MoreScreen extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Card(
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(
+                  ResultScreen(
+                    query: AppConstants.categoriesList[index],
+                  ),
+                );
+              },
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(

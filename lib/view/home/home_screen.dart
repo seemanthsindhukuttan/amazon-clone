@@ -1,12 +1,12 @@
-import 'package:amazon_clone/core/colors.dart';
-import 'package:amazon_clone/core/constants.dart';
-import 'package:amazon_clone/view/home/widgets/banner_ads.dart';
-import 'package:amazon_clone/view/home/widgets/category_list_view_bar.dart';
-import 'package:amazon_clone/view/home/widgets/location_bar_widget.dart';
-import 'package:amazon_clone/view/home/widgets/product_show_card.dart';
-import 'package:amazon_clone/view/home/widgets/product_showcase_List_view.dart';
-import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
-import 'package:amazon_clone/view/product_detial/product_detial_screen.dart';
+import '../../core/colors.dart';
+import '../../core/constants.dart';
+import '../../view/home/widgets/banner_ads.dart';
+import '../../view/home/widgets/category_list_view_bar.dart';
+import '../../view/home/widgets/location_bar_widget.dart';
+import '../../view/home/widgets/product_show_card.dart';
+import '../../view/home/widgets/product_showcase_List_view.dart';
+import '../../view/home/widgets/search_bar_widget.dart';
+import '../../view/product_detial/product_detial_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

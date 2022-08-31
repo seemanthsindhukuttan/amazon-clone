@@ -22,4 +22,8 @@ class UiColors {
     Color(0xFFF4D384),
     Color(0xFFF0BE42),
   ];
+  static const List<Color> secondaryButtonGradient = [
+    UiColors.backgroundColor,
+    Color.fromARGB(255, 221, 221, 221)
+  ];
 }

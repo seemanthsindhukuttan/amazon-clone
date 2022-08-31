@@ -47,15 +47,15 @@ class UserAuthScreenController extends GetxController {
   } //<==
 
   // sigup User ==>
-  Future<bool> sigUpUser(
-      {required String username,
-      required String email,
-      required String password,
-      required String address}) async {
+  Future<bool> sigUpUser({
+    required String username,
+    required String email,
+    required String password,
+    required String address,
+  }) async {
     try {
       buttonLoading.value = true;
-      final UserCredential userCredential =
-          await _firebaseAuth.createUserWithEmailAndPassword(
+      await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -68,7 +68,6 @@ class UserAuthScreenController extends GetxController {
       await _uploadUserData(
         username: username,
         address: address,
-        email: '${userCredential.user?.email}',
       );
 
       return true;
@@ -115,16 +114,15 @@ class UserAuthScreenController extends GetxController {
   } //<==
 
   // upload User data to firestore ==>
-  Future<void> _uploadUserData(
-      {required String username,
-      required String address,
-      required String email}) async {
+  Future<void> _uploadUserData({
+    required String username,
+    required String address,
+  }) async {
     await _collectionReference
         .doc(_firebaseAuth.currentUser?.uid)
         .set({
           "name": username,
           "address": address,
-          "email": email,
         })
         .then((value) => log("User Added"))
         .catchError((error) => log("Failed to add user: $error"));

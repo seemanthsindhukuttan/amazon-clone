@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../core/colors.dart';
-import '../../../core/constants.dart';
+import '../core/colors.dart';
+import '../core/constants.dart';
 
 class AppBarWidget extends StatelessWidget {
-  const AppBarWidget({Key? key}) : super(key: key);
+  const AppBarWidget({Key? key, this.showActionButton = true})
+      : super(key: key);
+  final bool? showActionButton;
 
   @override
   Widget build(BuildContext context) {
@@ -29,23 +30,25 @@ class AppBarWidget extends StatelessWidget {
               width: 30,
               AppConstants.amazonLogo,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.notifications_none_outlined,
+            showActionButton == false
+                ? const SizedBox()
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.notifications_none_outlined,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.search,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.search,
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),

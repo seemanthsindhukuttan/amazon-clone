@@ -1,7 +1,7 @@
-import 'package:amazon_clone/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../core/colors.dart';
+import '../../../core/constants.dart';
 
 class ProductShowCaseListView extends StatelessWidget {
   const ProductShowCaseListView({

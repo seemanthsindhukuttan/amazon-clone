@@ -1,6 +1,8 @@
+import 'package:amazon_clone/controller/user_controller.dart';
 import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LocationBarWidget extends StatelessWidget {
   const LocationBarWidget({Key? key, required this.offset}) : super(key: key);
@@ -21,8 +23,8 @@ class LocationBarWidget extends StatelessWidget {
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Padding(
+          children: [
+            const Padding(
               padding: EdgeInsets.only(left: 10),
               child: Icon(
                 Icons.location_on_outlined,
@@ -30,11 +32,16 @@ class LocationBarWidget extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Text(
-                  'Select a location to see product availability ',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+                padding: const EdgeInsets.only(left: 10),
+                child: GetBuilder<UserController>(
+                  init: UserController(),
+                  builder: (userController) {
+                    return Text(
+                      "Deliver to ${userController.userDetials.value.username}- ${userController.userDetials.value.address}",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    );
+                  },
                 ),
               ),
             ),

@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 
@@ -19,7 +18,7 @@ class RatingDialogWidget extends StatelessWidget {
       ),
       submitButtonText: 'Submit',
       commentHint: 'Add comment ',
-      onSubmitted: (response) {
+      onSubmitted: (RatingDialogResponse response) {
         log('rating: ${response.rating}, comment: ${response.comment}');
       },
     );
