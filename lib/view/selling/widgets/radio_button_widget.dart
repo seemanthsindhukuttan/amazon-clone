@@ -20,6 +20,7 @@ class RadioButtonWidget extends StatelessWidget {
     return Column(
       children: [
         Radio(
+          activeColor: UiColors.activeCyanColor,
           value: value,
           groupValue: groupValue,
           onChanged: onChanged,
@@ -27,7 +28,7 @@ class RadioButtonWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: AppConstants.screenSize.width * 0.02),
           child: Text(
-            '$label%',
+            label,
             style: const TextStyle(
               fontSize: 18,
               color: UiColors.blackColor,

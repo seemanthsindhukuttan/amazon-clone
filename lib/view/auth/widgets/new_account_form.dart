@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkwell/linkwell.dart';
-import '../../../controller/auth_controller.dart';
+import '../../../controller/user_auth_screen_controller.dart';
 import '../../../core/colors.dart';
 import '../../../core/constants.dart';
+import '../../../services/auth_service.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
 
@@ -138,8 +139,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                       //! Continue button onPress
                       if (_formKey.currentState!.validate()) {
                         //sign up method called
-                        final response =
-                            await userAuthScreenController.sigUpUser(
+                        final response = await AuthService().sigUpUser(
                           username: nameController.text,
                           email: emailController.text,
                           password: passwordController.text,

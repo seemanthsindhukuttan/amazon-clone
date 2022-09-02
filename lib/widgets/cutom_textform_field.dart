@@ -9,12 +9,14 @@ class CustomTextFoemField extends StatelessWidget {
     this.obscureText = false,
     this.validator,
     this.maxLines = 1,
+    this.keyboardType,
   }) : super(key: key);
   final TextEditingController controller;
   final String title;
   final bool obscureText;
   final String? Function(String?)? validator;
   final int? maxLines;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,7 @@ class CustomTextFoemField extends StatelessWidget {
             right: screenSize.width / 25,
           ),
           child: TextFormField(
+            keyboardType: keyboardType,
             controller: controller,
             obscureText: obscureText,
             validator: validator,

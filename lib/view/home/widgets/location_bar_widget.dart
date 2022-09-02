@@ -1,4 +1,4 @@
-import 'package:amazon_clone/controller/user_controller.dart';
+import 'package:amazon_clone/controller/user_detial_bar_controller.dart';
 import 'package:amazon_clone/core/colors.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +9,8 @@ class LocationBarWidget extends StatelessWidget {
   final double offset;
   @override
   Widget build(BuildContext context) {
+    final userDetialBarController = Get.put(UserDetialBarController());
+
     return Positioned(
       top: -offset / 0.8,
       child: Container(
@@ -33,16 +35,11 @@ class LocationBarWidget extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: GetBuilder<UserController>(
-                  init: UserController(),
-                  builder: (userController) {
-                    return Text(
-                      "Deliver to ${userController.userDetials.value.username}- ${userController.userDetials.value.address}",
+                child: Obx(() => Text(
+                      "Deliver to ${userDetialBarController.userDetials.value.username}- ${userDetialBarController.userDetials.value.address}",
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                    );
-                  },
-                ),
+                    )),
               ),
             ),
           ],

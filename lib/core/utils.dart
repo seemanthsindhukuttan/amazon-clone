@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 import 'package:amazon_clone/core/colors.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -16,6 +17,12 @@ class AppUtils {
       backgroundColor: UiColors.backgroundColor,
       isDismissible: true,
       snackStyle: SnackStyle.FLOATING,
+      snackPosition: SnackPosition.TOP,
+      backgroundGradient: const LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: UiColors.primaryButtonGradient,
+      ),
     );
   }
 

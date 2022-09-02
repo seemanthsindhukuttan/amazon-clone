@@ -4,8 +4,6 @@ import 'package:amazon_clone/view/cart/cart_screen.dart';
 import 'package:amazon_clone/view/home/home_screen.dart';
 import 'package:amazon_clone/view/more/more_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../controller/user_controller.dart';
 import 'widget/custom_bottom_nav_bar.dart';
 
 class LayoutScreen extends StatefulWidget {

@@ -21,6 +21,7 @@ dependencies:
   rating_dialog: ^2.0.4
   image_picker: ^0.8.5+3
   permission_handler: ^10.0.0
+  firebase_storage: ^10.3.7
 
 # dev_dependencies
 dev_dependencies:

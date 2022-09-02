@@ -1,10 +1,14 @@
 import 'dart:typed_data';
+import 'package:amazon_clone/controller/user_detial_bar_controller.dart';
 import 'package:amazon_clone/core/constants.dart';
 import 'package:amazon_clone/core/utils.dart';
+import 'package:amazon_clone/services/sell_product_service.dart';
 import 'package:amazon_clone/view/selling/widgets/radio_button_widget.dart';
 import 'package:amazon_clone/widgets/cutom_textform_field.dart';
 import 'package:amazon_clone/widgets/gradient_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -22,8 +26,17 @@ class _SellingScreenState extends State<SellingScreen> {
   final _formKey = GlobalKey<FormState>();
   ValueNotifier<Uint8List?> image = ValueNotifier(null);
   bool isLoading = false;
+  ValueNotifier<int> selectedRadio = ValueNotifier(0);
   TextEditingController itemNameController = TextEditingController();
-  TextEditingController itemConstController = TextEditingController();
+  TextEditingController itemCostController = TextEditingController();
+
+  @override
+  void dispose() {
+    itemNameController.dispose();
+    itemCostController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,7 +152,8 @@ class _SellingScreenState extends State<SellingScreen> {
                                 },
                               ),
                               CustomTextFoemField(
-                                controller: itemConstController,
+                                keyboardType: TextInputType.number,
+                                controller: itemCostController,
                                 title: 'Item Cost',
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -152,47 +166,100 @@ class _SellingScreenState extends State<SellingScreen> {
                               SizedBox(
                                 height: AppConstants.screenSize.height * 0.02,
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  RadioButtonWidget(
-                                    value: true,
-                                    groupValue: true,
-                                    onChanged: (value) {},
-                                    label: '10',
-                                  ),
-                                  RadioButtonWidget(
-                                    value: true,
-                                    groupValue: false,
-                                    onChanged: (value) {},
-                                    label: '25',
-                                  ),
-                                  RadioButtonWidget(
-                                    value: true,
-                                    groupValue: false,
-                                    onChanged: (value) {},
-                                    label: '35',
-                                  ),
-                                  RadioButtonWidget(
-                                    value: true,
-                                    groupValue: false,
-                                    onChanged: (value) {},
-                                    label: '50',
-                                  ),
-                                  RadioButtonWidget(
-                                    value: true,
-                                    groupValue: false,
-                                    onChanged: (value) {},
-                                    label: '60',
-                                  ),
-                                  RadioButtonWidget(
-                                    value: true,
-                                    groupValue: false,
-                                    onChanged: (value) {},
-                                    label: '70',
-                                  ),
-                                ],
-                              ),
+                              ValueListenableBuilder(
+                                  valueListenable: selectedRadio,
+                                  builder: (BuildContext context,
+                                      int selectedValue, Widget? _) {
+                                    return LimitedBox(
+                                      maxHeight:
+                                          AppConstants.screenSize.height * 0.10,
+                                      child: ListView(
+                                        scrollDirection: Axis.horizontal,
+                                        children: [
+                                          RadioButtonWidget(
+                                            value: 0,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: 'None',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 1,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '10%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 2,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '20%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 3,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '30%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 4,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '40%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 5,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '50%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 6,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '60%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 7,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '70%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 8,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '80%',
+                                          ),
+                                          RadioButtonWidget(
+                                            value: 9,
+                                            groupValue: selectedValue,
+                                            onChanged: (value) {
+                                              selectedRadio.value = value;
+                                            },
+                                            label: '90%',
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }),
                               SizedBox(
                                 height: AppConstants.screenSize.height * 0.02,
                               ),
@@ -200,7 +267,22 @@ class _SellingScreenState extends State<SellingScreen> {
                                 width: AppConstants.screenSize.width / 1.5,
                                 borderRadius: BorderRadius.circular(10),
                                 onPressed: () async {
-                                  if (_formKey.currentState!.validate()) {}
+                                  if (_formKey.currentState!.validate()) {
+                                    SellProductService().uploadProductToDB(
+                                      sellerUid: FirebaseAuth
+                                          .instance.currentUser!.uid,
+                                      sellerName:
+                                          Get.find<UserDetialBarController>()
+                                              .userDetials()
+                                              .username,
+                                      productName: itemNameController.text,
+                                      price:
+                                          double.parse(itemCostController.text),
+                                      imageUrl: image.value,
+                                      discount: AppConstants
+                                          .discountKey[selectedRadio.value],
+                                    );
+                                  }
                                 },
                                 child: Text(
                                   'Sell',
@@ -223,7 +305,9 @@ class _SellingScreenState extends State<SellingScreen> {
                                   end: Alignment.bottomCenter,
                                   colors: UiColors.secondaryButtonGradient,
                                 ),
-                                onPressed: () async {},
+                                onPressed: () {
+                                  Get.back();
+                                },
                                 child: Text(
                                   'Back',
                                   style: GoogleFonts.aBeeZee(

@@ -6,8 +6,8 @@ class ProductModel {
   final int discount;
   final String sellerName;
   final String sellerUid;
-  final int rating;
-  final int ratingCount;
+  final int? rating;
+  final int? ratingCount;
 
   ProductModel({
     required this.uid,
@@ -17,7 +17,7 @@ class ProductModel {
     required this.discount,
     required this.sellerName,
     required this.sellerUid,
-    required this.rating,
-    required this.ratingCount,
+    this.rating,
+    this.ratingCount,
   });
 }
