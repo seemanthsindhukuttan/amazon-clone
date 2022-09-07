@@ -1,10 +1,10 @@
-import 'package:amazon_clone/core/constants.dart';
-import 'package:amazon_clone/model/product_model.dart';
-import 'package:amazon_clone/view/cart/widget/cart_tile.dart';
-import 'package:amazon_clone/view/home/widgets/location_bar_widget.dart';
-import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
-import 'package:amazon_clone/view/product_detial/product_detial_screen.dart';
-import 'package:amazon_clone/widgets/gradient_button.dart';
+import '../../core/constants.dart';
+import '../../model/product_model.dart';
+import 'widget/cart_tile.dart';
+import '../home/widgets/location_bar_widget.dart';
+import '../home/widgets/search_bar_widget.dart';
+import '../product_detial/product_detial_screen.dart';
+import '../../widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

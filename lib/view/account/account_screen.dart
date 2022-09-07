@@ -1,8 +1,9 @@
-import 'package:amazon_clone/core/constants.dart';
-import 'package:amazon_clone/widgets/appbar_widget.dart';
-import 'package:amazon_clone/view/selling/selling_screen.dart';
-import 'package:amazon_clone/view/sgin_in%20or%20login/sgin_in_or_create.dart';
-import 'package:amazon_clone/widgets/gradient_button.dart';
+import '../../controller/user_detial_bar_controller.dart';
+import '../../core/constants.dart';
+import '../../widgets/appbar_widget.dart';
+import '../selling/selling_screen.dart';
+import '../sgin_in%20or%20login/sgin_in_or_create.dart';
+import '../../widgets/gradient_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -61,7 +62,7 @@ class AccountScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Liya', //todo: change name
+                      Get.find<UserDetialController>().userDetials().username,
                       style: GoogleFonts.aBeeZee(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -147,8 +148,9 @@ class AccountScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
-                  return const ProductShowCardWidget(
-                    image: 'assets/nike_shoe.jpg',
+                  return ProductShowCardWidget(
+                    image:
+                        'https://m.media-amazon.com/images/I/31kR1wLc5OL.jpg',
                     productName:
                         'Nike mens Nike Air Max 270 React Se Running Shoe',
                   );

@@ -1,11 +1,11 @@
 import 'dart:typed_data';
-import 'package:amazon_clone/controller/user_detial_bar_controller.dart';
-import 'package:amazon_clone/core/constants.dart';
-import 'package:amazon_clone/core/utils.dart';
-import 'package:amazon_clone/services/sell_product_service.dart';
-import 'package:amazon_clone/view/selling/widgets/radio_button_widget.dart';
-import 'package:amazon_clone/widgets/cutom_textform_field.dart';
-import 'package:amazon_clone/widgets/gradient_button.dart';
+import '../../controller/user_detial_bar_controller.dart';
+import '../../core/constants.dart';
+import '../../core/utils.dart';
+import '../../services/sell_product_service.dart';
+import 'widgets/radio_button_widget.dart';
+import '../../widgets/cutom_textform_field.dart';
+import '../../widgets/gradient_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -268,11 +268,12 @@ class _SellingScreenState extends State<SellingScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
-                                    SellProductService().uploadProductToDB(
+                                    await SellProductService()
+                                        .uploadProductToDB(
                                       sellerUid: FirebaseAuth
                                           .instance.currentUser!.uid,
                                       sellerName:
-                                          Get.find<UserDetialBarController>()
+                                          Get.find<UserDetialController>()
                                               .userDetials()
                                               .username,
                                       productName: itemNameController.text,

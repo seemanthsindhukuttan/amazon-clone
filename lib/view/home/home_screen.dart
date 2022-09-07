@@ -1,14 +1,13 @@
+import 'package:amazon_clone/controller/home_screen_controller.dart';
+import 'package:get/get.dart';
+import 'widgets/product_list.dart';
 import '../../core/colors.dart';
 import '../../core/constants.dart';
 import '../../view/home/widgets/banner_ads.dart';
 import '../../view/home/widgets/category_list_view_bar.dart';
 import '../../view/home/widgets/location_bar_widget.dart';
-import '../../view/home/widgets/product_show_card.dart';
-import '../../view/home/widgets/product_showcase_List_view.dart';
 import '../../view/home/widgets/search_bar_widget.dart';
-import '../../view/product_detial/product_detial_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late ScrollController _scrollController;
   final ValueNotifier<double> _offset = ValueNotifier(0);
+
   @override
   void initState() {
     _scrollController = ScrollController();
@@ -45,120 +45,31 @@ class _HomeScreenState extends State<HomeScreen> {
           autofocus: false,
         ),
       ),
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                const CategoryListViewBar(),
-                const Divider(
-                  color: UiColors.backgroundColor,
-                  height: 5,
-                ),
-                const LargeBannerAdsWidget(),
-                ProductShowCaseListView(
-                  onTap: () => Get.to(const ProductDetialScreen(
-                    sellerName: 'seemanth',
-                    productName: 'nike shoe',
-                    price: 1000,
-                    imageUrl: 'assets/nike_shoe.jpg',
-                    reviewerName: 'liya',
-                    rating: 4,
-                    comments: 'good product',
-                    custmorRating: 4,
-                  )),
-                  title: 'Upto 10% Off',
-                  listView: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ProductShowCardWidget(
-                        image: 'assets/tshirt.jpg',
-                        productName: 'Puma Unisex-Child Regular T-Shirt',
-                      );
-                    },
-                  ),
-                ),
-                ProductShowCaseListView(
-                  title: 'Upto 25% Off',
-                  listView: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ProductShowCardWidget(
-                        image: 'assets/nike_shoe.jpg',
-                        productName:
-                            'Nike mens Nike Air Max 270 React Se Running Shoe',
-                      );
-                    },
-                  ),
-                ),
-                ProductShowCaseListView(
-                  title: 'Upto 35% Off',
-                  listView: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ProductShowCardWidget(
-                        image: 'assets/nike_shoe.jpg',
-                        productName:
-                            'Nike mens Nike Air Max 270 React Se Running Shoe',
-                      );
-                    },
-                  ),
-                ),
-                ProductShowCaseListView(
-                  title: 'Upto 50% Off',
-                  listView: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ProductShowCardWidget(
-                        image: 'assets/nike_shoe.jpg',
-                        productName:
-                            'Nike mens Nike Air Max 270 React Se Running Shoe',
-                      );
-                    },
-                  ),
-                ),
-                ProductShowCaseListView(
-                  title: 'Upto 60% Off',
-                  listView: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ProductShowCardWidget(
-                        image: 'assets/nike_shoe.jpg',
-                        productName:
-                            'Nike mens Nike Air Max 270 React Se Running Shoe',
-                      );
-                    },
-                  ),
-                ),
-                ProductShowCaseListView(
-                  title: 'Upto 70% Off',
-                  listView: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ProductShowCardWidget(
-                        image: 'assets/nike_shoe.jpg',
-                        productName:
-                            'Nike mens Nike Air Max 270 React Se Running Shoe',
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-            ValueListenableBuilder(
-              valueListenable: _offset,
-              builder: (BuildContext context, double value, Widget? _) {
-                return LocationBarWidget(offset: value);
-              },
-            ),
-          ],
+      body: RefreshIndicator(
+        color: UiColors.activeCyanColor,
+        onRefresh: () async {
+          await Get.find<HomeScreenController>().getData();
+        },
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          child: Stack(
+            children: [
+              Column(
+                children: const [
+                  CategoryListViewBar(),
+                  Divider(color: UiColors.backgroundColor, height: 5),
+                  LargeBannerAdsWidget(),
+                  ProductListWidget(),
+                ],
+              ),
+              ValueListenableBuilder(
+                valueListenable: _offset,
+                builder: (BuildContext context, double value, Widget? _) {
+                  return LocationBarWidget(offset: value);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

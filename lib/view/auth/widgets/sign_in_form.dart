@@ -1,4 +1,4 @@
-import 'package:amazon_clone/layout/lobby_screen.dart';
+import '../../../layout/lobby_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

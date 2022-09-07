@@ -1,7 +1,7 @@
-import 'package:amazon_clone/core/colors.dart';
-import 'package:amazon_clone/core/constants.dart';
-import 'package:amazon_clone/view/home/widgets/search_bar_widget.dart';
-import 'package:amazon_clone/view/product_detial/product_detial_screen.dart';
+import '../../core/colors.dart';
+import '../../core/constants.dart';
+import '../home/widgets/search_bar_widget.dart';
+import '../product_detial/product_detial_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

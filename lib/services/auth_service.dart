@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'package:amazon_clone/controller/user_auth_screen_controller.dart';
+import '../controller/user_auth_screen_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';

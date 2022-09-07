@@ -11,8 +11,7 @@ class UserDetialService {
         .get();
 
     //json data  converted to model object.
-    UserModel userDetials =
-        UserModel.getModelFromJson(userData.data() as dynamic);
+    UserModel userDetials = UserModel.fromJson(userData.data() as dynamic);
 
     return userDetials;
   }

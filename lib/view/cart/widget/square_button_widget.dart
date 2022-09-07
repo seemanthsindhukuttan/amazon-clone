@@ -1,4 +1,4 @@
-import 'package:amazon_clone/core/colors.dart';
+import '../../../core/colors.dart';
 import 'package:flutter/material.dart';
 
 class IconSquareButton extends StatelessWidget {

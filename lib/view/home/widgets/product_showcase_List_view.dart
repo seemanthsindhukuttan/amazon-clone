@@ -8,16 +8,13 @@ class ProductShowCaseListView extends StatelessWidget {
     Key? key,
     required this.title,
     required this.listView,
-    this.onTap,
   }) : super(key: key);
   final String title;
   final ListView listView;
-  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 0, top: 10),
         child: Container(

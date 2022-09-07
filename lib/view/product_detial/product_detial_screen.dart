@@ -1,6 +1,6 @@
-import 'package:amazon_clone/view/product_detial/widgets/product_review_widget.dart';
-import 'package:amazon_clone/view/product_detial/widgets/rating_dialog.dart';
-import 'package:amazon_clone/view/search_result/widgets/rating_star.dart';
+import 'widgets/product_review_widget.dart';
+import 'widgets/rating_dialog.dart';
+import '../search_result/widgets/rating_star.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/colors.dart';
@@ -126,7 +126,7 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                 ),
                 Align(
                   alignment: Alignment.center,
-                  child: Image.asset(
+                  child: Image.network(
                     widget.imageUrl,
                     height: AppConstants.screenSize.height / 4,
                   ),

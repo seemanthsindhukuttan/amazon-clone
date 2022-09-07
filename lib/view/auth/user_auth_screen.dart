@@ -1,6 +1,6 @@
-import 'package:amazon_clone/controller/user_auth_screen_controller.dart';
-import 'package:amazon_clone/core/colors.dart';
-import 'package:amazon_clone/core/constants.dart';
+import '../../controller/user_auth_screen_controller.dart';
+import '../../core/colors.dart';
+import '../../core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';

@@ -1,4 +1,4 @@
-import 'package:amazon_clone/core/constants.dart';
+import '../../../core/constants.dart';
 import 'package:flutter/material.dart';
 import '../../../core/colors.dart';
 

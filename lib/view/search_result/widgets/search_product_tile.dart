@@ -1,4 +1,4 @@
-import 'package:amazon_clone/view/search_result/widgets/rating_star.dart';
+import 'rating_star.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../core/colors.dart';

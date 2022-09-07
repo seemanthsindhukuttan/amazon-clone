@@ -6,12 +6,13 @@ class UserModel {
     required this.username,
     required this.address,
   });
-  Map<String, dynamic> getJson() => {
+
+  Map<String, dynamic> toJson() => {
         "name": username,
         "address": address,
       };
 
-  factory UserModel.getModelFromJson(Map<String, dynamic> json) {
+  factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       username: json['name'],
       address: json['address'],

@@ -1,11 +1,15 @@
 import 'dart:typed_data';
-import 'package:amazon_clone/core/colors.dart';
+import 'package:flutter/foundation.dart';
+import 'dart:math';
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
+import 'colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AppUtils {
-  // snackbar
+  // snackbar ==>
   static void snackBar({
     String title = '',
     String content = '',
@@ -24,9 +28,9 @@ class AppUtils {
         colors: UiColors.primaryButtonGradient,
       ),
     );
-  }
+  } // <==
 
-  //image picker function.
+  //image picker function ==>
   static Future<Uint8List?> pickImage({required ImageSource source}) async {
     ImagePicker picker = ImagePicker();
     XFile? xFile = await picker.pickImage(source: source);
@@ -35,5 +39,13 @@ class AppUtils {
     } else {
       return null;
     }
-  }
+  } // <==
+
+  // sha1 hashing uid genarator ==>
+  static String uid() {
+    final randomNumber = Random().nextDouble();
+    final randomBytes = utf8.encode(randomNumber.toString());
+    final randomString = sha1.convert(randomBytes).toString();
+    return randomString;
+  } // <==
 }

@@ -1,6 +1,6 @@
-import 'package:amazon_clone/controller/user_detial_bar_controller.dart';
-import 'package:amazon_clone/core/colors.dart';
-import 'package:amazon_clone/core/constants.dart';
+import '../../../controller/user_detial_bar_controller.dart';
+import '../../../core/colors.dart';
+import '../../../core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +9,7 @@ class LocationBarWidget extends StatelessWidget {
   final double offset;
   @override
   Widget build(BuildContext context) {
-    final userDetialBarController = Get.put(UserDetialBarController());
+    final userDetialBarController = Get.put(UserDetialController());
 
     return Positioned(
       top: -offset / 0.8,
