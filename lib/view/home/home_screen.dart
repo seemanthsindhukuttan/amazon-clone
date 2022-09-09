@@ -1,5 +1,6 @@
-import 'package:amazon_clone/controller/home_screen_controller.dart';
+import '../../controller/home_screen_controller.dart';
 import 'package:get/get.dart';
+import '../../controller/user_detial_bar_controller.dart';
 import 'widgets/product_list.dart';
 import '../../core/colors.dart';
 import '../../core/constants.dart';
@@ -18,6 +19,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late ScrollController _scrollController;
+  final controller = Get.put(HomeScreenController());
+
   final ValueNotifier<double> _offset = ValueNotifier(0);
 
   @override
@@ -48,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: RefreshIndicator(
         color: UiColors.activeCyanColor,
         onRefresh: () async {
-          await Get.find<HomeScreenController>().getData();
+          await controller.getData();
         },
         child: SingleChildScrollView(
           controller: _scrollController,

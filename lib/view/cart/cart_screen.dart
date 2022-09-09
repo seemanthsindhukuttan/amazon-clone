@@ -98,16 +98,17 @@ class _CartScreenState extends State<CartScreen> {
 
                     return GestureDetector(
                       onTap: () {
-                        Get.to(const ProductDetialScreen(
-                          sellerName: 'seemanth',
-                          productName: 'nike shoe',
-                          price: 1000,
-                          imageUrl: 'assets/nike_shoe.jpg',
-                          reviewerName: 'liya',
-                          rating: 4,
-                          comments: 'good product',
-                          custmorRating: 4,
-                        ));
+                        // Get.to(ProductDetialScreen(
+                        //   discount: 0,
+                        //   sellerName: 'seemanth',
+                        //   productName: 'nike shoe',
+                        //   price: 1000,
+                        //   imageUrl: 'assets/nike_shoe.jpg',
+                        //   reviewerName: 'liya',
+                        //   rating: 4,
+                        //   comments: 'good product',
+                        //   custmorRating: 4,
+                        // ));
                       },
                       child: CartTileWidget(
                         productName: product.productName,

@@ -98,9 +98,11 @@ class AccountScreen extends StatelessWidget {
               child: GradientElevatedButton(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
                 width: AppConstants.screenSize.width / 1.3,
-                onPressed: () {
+                onPressed: () async {
                   //! Sign Out button on pressed
                   FirebaseAuth.instance.signOut();
+
+                  await Get.deleteAll();
                   Get.off(const SginInOrCreate());
                 },
                 gradient: const LinearGradient(

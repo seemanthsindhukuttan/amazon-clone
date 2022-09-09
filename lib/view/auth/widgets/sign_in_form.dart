@@ -21,7 +21,7 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  final userAuthScreenController = Get.put(UserAuthScreenController());
+  final userAuthScreenController = Get.find<UserAuthScreenController>();
   @override
   void dispose() {
     emailController.dispose();

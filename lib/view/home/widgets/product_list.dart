@@ -1,4 +1,4 @@
-import 'package:amazon_clone/core/colors.dart';
+import '../../../core/colors.dart';
 
 import 'product_show_card.dart';
 import 'product_showcase_List_view.dart';
@@ -35,25 +35,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 0% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto0.value.length,
+                            itemCount: controller.upto0.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto0.value[index];
+                              final productModel = controller.upto0[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
-                                    ),
+                                        productModel: productModel),
                                   );
                                 },
                               );
@@ -68,24 +59,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 10% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto10.value.length,
+                            itemCount: controller.upto10.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto10.value[index];
+                              final productModel = controller.upto10[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -101,24 +84,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 20% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto20.value.length,
+                            itemCount: controller.upto20.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto20.value[index];
+                              final productModel = controller.upto20[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -134,24 +109,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 30% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto30.value.length,
+                            itemCount: controller.upto30.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto30.value[index];
+                              final productModel = controller.upto30[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -167,24 +134,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 40% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto40.value.length,
+                            itemCount: controller.upto40.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto40.value[index];
+                              final productModel = controller.upto40[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -200,24 +159,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 50% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto50.value.length,
+                            itemCount: controller.upto50.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto50.value[index];
+                              final productModel = controller.upto50[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -232,24 +183,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 60% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto60.value.length,
+                            itemCount: controller.upto60.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto60.value[index];
+                              final productModel = controller.upto60[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -265,24 +208,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 70% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto70.value.length,
+                            itemCount: controller.upto70.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto70.value[index];
+                              final productModel = controller.upto70[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -298,24 +233,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 80% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto80.value.length,
+                            itemCount: controller.upto80.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto80.value[index];
+                              final productModel = controller.upto80[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },
@@ -331,24 +258,16 @@ class ProductListWidget extends StatelessWidget {
                           title: 'Upto 90% Off',
                           listView: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: controller.upto90.value.length,
+                            itemCount: controller.upto90.length,
                             itemBuilder: (BuildContext context, int index) {
-                              final productModel =
-                                  controller.upto90.value[index];
+                              final productModel = controller.upto90[index];
                               return ProductShowCardWidget(
                                 image: productModel.imageUrl,
                                 productName: productModel.productName,
                                 onTap: () {
                                   Get.to(
                                     ProductDetialScreen(
-                                      sellerName: productModel.sellerName,
-                                      productName: productModel.productName,
-                                      price: productModel.price,
-                                      imageUrl: productModel.imageUrl,
-                                      reviewerName: '',
-                                      rating: productModel.rating,
-                                      comments: '',
-                                      custmorRating: productModel.ratingCount,
+                                      productModel: productModel,
                                     ),
                                   );
                                 },

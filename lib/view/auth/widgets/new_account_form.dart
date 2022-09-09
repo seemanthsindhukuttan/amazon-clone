@@ -19,7 +19,7 @@ class NewAccountForm extends StatefulWidget {
 
 class _NewAccountFormState extends State<NewAccountForm> {
   final _formKey = GlobalKey<FormState>();
-  final userAuthScreenController = Get.put(UserAuthScreenController());
+  final userAuthScreenController = Get.find<UserAuthScreenController>();
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();

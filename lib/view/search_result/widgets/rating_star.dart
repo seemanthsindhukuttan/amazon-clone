@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RatingStarWidget extends StatelessWidget {
-  final int rating;
+  final double rating;
 
   const RatingStarWidget({
     Key? key,

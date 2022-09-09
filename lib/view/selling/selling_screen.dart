@@ -1,19 +1,19 @@
 import 'dart:typed_data';
-import '../../controller/user_detial_bar_controller.dart';
-import '../../core/constants.dart';
-import '../../core/utils.dart';
-import '../../services/sell_product_service.dart';
-import 'widgets/radio_button_widget.dart';
-import '../../widgets/cutom_textform_field.dart';
-import '../../widgets/gradient_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import '../../controller/user_detial_bar_controller.dart';
 import '../../core/colors.dart';
+import '../../core/constants.dart';
+import '../../core/utils.dart';
+import '../../services/sell_product_service.dart';
 import '../../widgets/appbar_widget.dart';
+import '../../widgets/cutom_textform_field.dart';
+import '../../widgets/gradient_button.dart';
+import 'widgets/radio_button_widget.dart';
 
 class SellingScreen extends StatefulWidget {
   const SellingScreen({Key? key}) : super(key: key);
@@ -268,6 +268,7 @@ class _SellingScreenState extends State<SellingScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
+                                    Get.back();
                                     await SellProductService()
                                         .uploadProductToDB(
                                       sellerUid: FirebaseAuth

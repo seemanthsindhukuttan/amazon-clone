@@ -8,7 +8,7 @@ class ProductModel {
   final int discount;
   final String sellerName;
   final String sellerUid;
-  final int rating;
+  final double rating;
   final int ratingCount;
 
   ProductModel({
@@ -19,8 +19,8 @@ class ProductModel {
     required this.discount,
     required this.sellerName,
     required this.sellerUid,
-    required this.rating,
-    required this.ratingCount,
+    this.rating = 5,
+    this.ratingCount = 5,
   });
 
   Map<String, dynamic> toJson() {

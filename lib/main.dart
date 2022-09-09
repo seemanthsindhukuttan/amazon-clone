@@ -1,10 +1,9 @@
-import 'controller/bindings/app_bindings.dart';
-import 'core/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'core/colors.dart';
 import 'layout/lobby_screen.dart';
 import 'view/sgin_in or login/sgin_in_or_create.dart';
 
@@ -27,7 +26,6 @@ class Amazon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: AppBinding(),
       debugShowCheckedModeBanner: false,
       title: 'Amazon',
       theme: ThemeData(

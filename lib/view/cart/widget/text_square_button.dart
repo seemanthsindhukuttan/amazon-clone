@@ -1,6 +1,6 @@
-import '../../../core/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 
 class TextSquareButton extends StatelessWidget {

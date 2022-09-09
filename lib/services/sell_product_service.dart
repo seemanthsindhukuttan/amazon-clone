@@ -23,7 +23,6 @@ class SellProductService {
           uid: uid,
         );
 
-        // - (price * (discount! / 100)),
         // get proudctmodel and set data .
         final productModel = ProductModel(
           uid: uid,
@@ -34,7 +33,7 @@ class SellProductService {
           sellerName: sellerName,
           sellerUid: sellerUid,
           ratingCount: 5,
-          rating: 0,
+          rating: 5,
         );
 
         // add to FirebaseFirestore
@@ -44,7 +43,7 @@ class SellProductService {
             .set(productModel.toJson())
             .then((value) {
           AppUtils.snackBar(
-            title: 'App error',
+            title: 'Amazon',
             content: 'product add scucessfully',
           );
         });
@@ -59,7 +58,7 @@ class SellProductService {
         // user error snackBar
 
         AppUtils.snackBar(
-          title: 'User error',
+          title: 'Amazon',
           content: "Please make sure all the fields are not empty",
         );
       }

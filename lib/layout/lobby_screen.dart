@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
+
 import '../core/colors.dart';
 import '../view/account/account_screen.dart';
 import '../view/cart/cart_screen.dart';
 import '../view/home/home_screen.dart';
 import '../view/more/more_screen.dart';
-import 'package:flutter/material.dart';
 import 'widget/custom_bottom_nav_bar.dart';
 
 class LayoutScreen extends StatefulWidget {

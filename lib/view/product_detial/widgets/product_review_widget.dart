@@ -13,7 +13,7 @@ class ProductReviewWidget extends StatelessWidget {
   }) : super(key: key);
   final String customerName;
   final String comments;
-  final int rating;
+  final double rating;
 
   @override
   Widget build(BuildContext context) {
