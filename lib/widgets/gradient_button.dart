@@ -1,5 +1,6 @@
-import '../core/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../core/colors.dart';
 
 class GradientElevatedButton extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;

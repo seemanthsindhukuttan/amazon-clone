@@ -1,6 +1,7 @@
-import '../model/user_model.dart';
-import '../services/user_detial_service.dart';
 import 'package:get/get.dart';
+
+import '../model/user_model.dart';
+import '../services/service.dart';
 
 class UserDetialController extends GetxController {
   //user model
@@ -10,7 +11,7 @@ class UserDetialController extends GetxController {
   @override
   Future<void> onInit() async {
     //call userdetialService function from services
-    userDetials.value = await UserDetialService().getUserData();
+    userDetials.value = await AppService().getUserData();
     super.onInit();
   }
 }

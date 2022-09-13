@@ -1,10 +1,11 @@
-import '../../core/constants.dart';
-import '../../view/home/widgets/search_bar_widget.dart';
-import '../../view/search_result/result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../core/colors.dart';
+import '../../core/constants.dart';
+import '../../view/search_result/result_screen.dart';
+import '../../widgets/search_bar_widget.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({Key? key}) : super(key: key);

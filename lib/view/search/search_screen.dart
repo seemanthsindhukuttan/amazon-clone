@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/constants.dart';
-import '../home/widgets/search_bar_widget.dart';
+import '../../widgets/search_bar_widget.dart';
 import '../search_result/result_screen.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -19,8 +19,10 @@ class SearchScreen extends StatelessWidget {
           showBackButton: true,
           isReadOnly: false,
           autofocus: true,
-          onSubmitted: (query) {
-            Get.to(ResultScreen(query: query));
+          onFieldSubmitted: (query) {
+            Get.to(ResultScreen(
+              query: query,
+            ));
             log(query);
           },
         ),

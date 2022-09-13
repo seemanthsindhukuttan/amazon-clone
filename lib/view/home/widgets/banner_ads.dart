@@ -1,7 +1,9 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+
 import '../../../core/colors.dart';
 import '../../../core/constants.dart';
-import 'package:flutter/material.dart';
 
 class LargeBannerAdsWidget extends StatefulWidget {
   const LargeBannerAdsWidget({Key? key}) : super(key: key);
