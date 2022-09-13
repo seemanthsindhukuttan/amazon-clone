@@ -107,37 +107,6 @@ class SginInOrCreate extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: AppConstants.screenSize.width / 50,
-                  right: 8.0,
-                  top: AppConstants.screenSize.height / 80,
-                  bottom: AppConstants.screenSize.height / 80,
-                ),
-                child: GradientElevatedButton(
-                  bodercolor: Colors.grey,
-                  borderRadius: BorderRadius.circular(9),
-                  gradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      UiColors.backgroundColor,
-                      Color.fromARGB(255, 221, 221, 221)
-                    ],
-                  ),
-                  onPressed: () {
-                    //! Skip Sign in button
-                  },
-                  child: Text(
-                    'Skip Sign in',
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: UiColors.blackColor,
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),

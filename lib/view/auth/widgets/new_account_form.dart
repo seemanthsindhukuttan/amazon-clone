@@ -1,3 +1,6 @@
+import 'sign_in_form.dart';
+
+import '../../../services/service.dart';
 import '../../../layout/lobby_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +9,6 @@ import 'package:linkwell/linkwell.dart';
 import '../../../controller/user_auth_screen_controller.dart';
 import '../../../core/colors.dart';
 import '../../../core/constants.dart';
-import '../../../services/auth_service.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
 
@@ -139,7 +141,7 @@ class _NewAccountFormState extends State<NewAccountForm> {
                       //! Continue button onPress
                       if (_formKey.currentState!.validate()) {
                         //sign up method called
-                        final response = await AuthService().sigUpUser(
+                        final response = await AppService().sigUpUser(
                           username: nameController.text,
                           email: emailController.text,
                           password: passwordController.text,
@@ -152,9 +154,15 @@ class _NewAccountFormState extends State<NewAccountForm> {
                           passwordController.clear();
                           addressController.clear();
                           // route to home
-                          Get.off(const LayoutScreen());
+                          userAuthScreenController.showCreateAccount.isTrue
+                              ? userAuthScreenController
+                                  .showCreateAccount.value = false
+                              : userAuthScreenController
+                                  .showCreateAccount.value = true;
+                          userAuthScreenController.buttonLoading.value = false;
                         }
                       }
+
                       //! Continue button onPress
                     },
                     child: userAuthScreenController.buttonLoading.isFalse

@@ -14,7 +14,7 @@ class IconSquareButton extends StatelessWidget {
         width: 40,
         color: UiColors.backgroundColor,
         child: IconButton(
-          onPressed: () {},
+          onPressed: onTap,
           icon: Icon(
             icon,
             size: 15,

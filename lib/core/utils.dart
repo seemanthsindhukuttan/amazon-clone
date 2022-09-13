@@ -1,12 +1,14 @@
-import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
-import 'dart:math';
 import 'dart:convert';
+import 'dart:math';
+import 'dart:typed_data';
+
 import 'package:crypto/crypto.dart';
-import 'colors.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+
+import 'colors.dart';
 
 class AppUtils {
   // snackbar ==>
@@ -48,4 +50,9 @@ class AppUtils {
     final randomString = sha1.convert(randomBytes).toString();
     return randomString;
   } // <==
+
+  static CircularProgressIndicator appCircularProgressIndicator =
+      const CircularProgressIndicator(
+    color: UiColors.activeCyanColor,
+  );
 }

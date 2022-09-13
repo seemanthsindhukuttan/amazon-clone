@@ -1,5 +1,6 @@
-import '../../../core/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/constants.dart';
 
 class ProductShowCardWidget extends StatelessWidget {
   const ProductShowCardWidget({
@@ -20,6 +21,7 @@ class ProductShowCardWidget extends StatelessWidget {
       child: SizedBox(
         width: AppConstants.screenSize.width / 2,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 9),
@@ -37,7 +39,7 @@ class ProductShowCardWidget extends StatelessWidget {
                 image,
                 fit: BoxFit.contain,
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -5,11 +5,13 @@ class ProductModel {
   final String productName;
   final String imageUrl;
   final double price;
+  final double discountPrice;
   final int discount;
   final String sellerName;
   final String sellerUid;
   final double rating;
   final int ratingCount;
+  int itemCount;
 
   ProductModel({
     required this.uid,
@@ -17,10 +19,12 @@ class ProductModel {
     required this.imageUrl,
     required this.price,
     required this.discount,
+    required this.discountPrice,
     required this.sellerName,
     required this.sellerUid,
-    this.rating = 5,
-    this.ratingCount = 5,
+    required this.rating,
+    required this.ratingCount,
+    required this.itemCount,
   });
 
   Map<String, dynamic> toJson() {
@@ -31,25 +35,29 @@ class ProductModel {
       "price": price,
       "discount": discount,
       "sellerName": sellerName,
+      'discountPrice': discountPrice,
       "sellerUid": sellerUid,
       "rating": rating,
       "ratingCount": ratingCount,
+      "itemCount": itemCount,
     };
   }
 
   factory ProductModel.fromJson({
-    required DocumentSnapshot<Map<String, dynamic>> json,
+    required Map<String, dynamic> json,
   }) {
     return ProductModel(
       uid: json['uid'],
       productName: json["productName"],
       imageUrl: json["imageUrl"],
       price: json["price"],
+      discountPrice: json['discountPrice'],
       discount: json["discount"],
       sellerName: json["sellerName"],
       sellerUid: json["sellerUid"],
       rating: json["rating"],
       ratingCount: json["ratingCount"],
+      itemCount: json["itemCount"],
     );
   }
 }

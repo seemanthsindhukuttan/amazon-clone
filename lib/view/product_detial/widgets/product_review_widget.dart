@@ -1,8 +1,9 @@
-import '../../../core/constants.dart';
-import '../../search_result/widgets/rating_star.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../core/colors.dart';
+import '../../../core/constants.dart';
+import '../../search_result/widgets/rating_star.dart';
 
 class ProductReviewWidget extends StatelessWidget {
   const ProductReviewWidget({

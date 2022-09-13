@@ -1,7 +1,8 @@
-import '../core/constants.dart';
-import '../services/get_product_service.dart';
 import 'package:get/get.dart';
+
+import '../core/constants.dart';
 import '../model/product_model.dart';
+import '../services/service.dart';
 
 class HomeScreenController extends GetxController {
   RxList<ProductModel> productdata = <ProductModel>[].obs;
@@ -29,7 +30,7 @@ class HomeScreenController extends GetxController {
     upto80.clear();
     upto90.clear();
 
-    productdata.value = await GetProductService().getProduct();
+    productdata.value = await AppService().getProduct();
 
     for (var product in productdata) {
       if (product.discount == AppConstants.discountKey[0]) {

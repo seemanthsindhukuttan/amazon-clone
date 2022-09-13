@@ -1,14 +1,17 @@
-import 'package:amazon_clone/model/product_model.dart';
-import 'package:amazon_clone/model/review_model.dart';
+import '../../core/utils.dart';
+import '../../services/service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../model/product_model.dart';
+import '../../model/review_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/colors.dart';
 import '../../core/constants.dart';
 import '../../widgets/gradient_button.dart';
 import '../home/widgets/location_bar_widget.dart';
-import '../home/widgets/search_bar_widget.dart';
+import '../../widgets/search_bar_widget.dart';
 import '../search_result/widgets/rating_star.dart';
 import 'widgets/product_review_widget.dart';
 import 'widgets/rating_dialog.dart';
@@ -114,20 +117,18 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                     ),
                   ),
                 ),
-                Image.network(
-                  widget.productModel.imageUrl,
-                  height: AppConstants.screenSize.height / 2.9,
+                Center(
+                  child: Image.network(
+                    widget.productModel.imageUrl,
+                    height: AppConstants.screenSize.height / 2.9,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       NumberFormat.currency(symbol: '₹')
-                          .format(
-                            widget.productModel.price -
-                                (widget.productModel.price *
-                                    (widget.productModel.discount / 100)),
-                          )
+                          .format(widget.productModel.discountPrice)
                           .toString(),
                       style: GoogleFonts.aBeeZee(
                         fontSize: 25,
@@ -180,8 +181,15 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                   child: GradientElevatedButton(
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                     width: AppConstants.screenSize.width / 1.3,
-                    onPressed: () {
+                    onPressed: () async {
                       //! Buy Now button on pressed
+                      await AppService().addProductToOder(
+                        productModel: widget.productModel,
+                      );
+                      AppUtils.snackBar(
+                        title: 'Amazon',
+                        content: "Product add to order",
+                      );
                     },
                     gradient: const LinearGradient(
                       begin: Alignment.topCenter,
@@ -205,8 +213,24 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                   child: GradientElevatedButton(
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                     width: AppConstants.screenSize.width / 1.3,
-                    onPressed: () {
+                    onPressed: () async {
                       //! Add to cart button on pressed
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                          .collection("cart")
+                          .doc(widget.productModel.uid)
+                          .get()
+                          .then((onValue) async {
+                        onValue.exists
+                            ? AppUtils.snackBar(
+                                title: "Amazon",
+                                content:
+                                    "product is already existing in cart check your cart",
+                              )
+                            : await AppService()
+                                .addToCart(productModel: widget.productModel);
+                      });
                     },
                     gradient: const LinearGradient(
                       begin: Alignment.topCenter,
@@ -248,7 +272,7 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                               show == false ? ' Show reviews' : 'Hide reviews',
                               style: const TextStyle(
                                 color: UiColors.activeCyanColor,
-                                fontSize: 18,
+                                fontSize: 15,
                               ),
                             ),
                           );
@@ -271,10 +295,10 @@ class _ProductDetialScreenState extends State<ProductDetialScreen> {
                           color: UiColors.activeCyanColor,
                         ),
                         label: const Text(
-                          'Add review for this product',
+                          'Add review ',
                           style: TextStyle(
                             color: UiColors.activeCyanColor,
-                            fontSize: 18,
+                            fontSize: 15,
                           ),
                         ),
                       ),

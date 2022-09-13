@@ -1,5 +1,8 @@
+import '../view/search/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
 import '../core/colors.dart';
 import '../core/constants.dart';
 
@@ -42,7 +45,9 @@ class AppBarWidget extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const SearchScreen());
+                        },
                         icon: const Icon(
                           Icons.search,
                         ),

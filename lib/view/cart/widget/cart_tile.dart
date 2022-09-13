@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../core/colors.dart';
 import '../../../core/constants.dart';
+import 'package:intl/intl.dart';
 
 class CartTileWidget extends StatelessWidget {
   const CartTileWidget({
@@ -17,6 +18,7 @@ class CartTileWidget extends StatelessWidget {
     required this.productIncrementButton,
     required this.productdecrementButton,
     required this.seenMoreLikeThisButton,
+    required this.count,
   }) : super(key: key);
 
   final String productName;
@@ -28,6 +30,7 @@ class CartTileWidget extends StatelessWidget {
   final VoidCallback productIncrementButton;
   final VoidCallback productdecrementButton;
   final VoidCallback seenMoreLikeThisButton;
+  final String count;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class CartTileWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(height: 150, width: 150, imageUrl),
+                  Image.network(height: 150, width: 150, imageUrl),
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(
@@ -66,7 +69,7 @@ class CartTileWidget extends StatelessWidget {
                             height: AppConstants.screenSize.height / 60,
                           ),
                           Text(
-                            '₹ $price',
+                            ' ${NumberFormat.currency(symbol: '₹').format(double.parse(price))}',
                             style: GoogleFonts.aBeeZee(
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
@@ -131,13 +134,13 @@ class CartTileWidget extends StatelessWidget {
                           decoration:
                               BoxDecoration(border: Border.all(width: 0.1)),
                           height: AppConstants.screenSize.height / 35,
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 4),
                             child: Text(
-                              '100',
+                              count,
                               maxLines: 1,
-                              style: TextStyle(fontSize: 15),
+                              style: const TextStyle(fontSize: 15),
                             ),
                           ),
                         ),

@@ -1,5 +1,11 @@
+import '../../model/order_request_model.dart';
+import 'widgets/oder_request_card.dart';
+import '../product_detial/product_detial_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../controller/user_detial_bar_controller.dart';
 import '../../core/constants.dart';
+import '../../core/utils.dart';
+import '../../model/product_model.dart';
 import '../../widgets/appbar_widget.dart';
 import '../selling/selling_screen.dart';
 import '../sgin_in%20or%20login/sgin_in_or_create.dart';
@@ -144,20 +150,41 @@ class AccountScreen extends StatelessWidget {
                 ),
               ),
             ),
-            ProductShowCaseListView(
-              title: 'Your Orders',
-              listView: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (BuildContext context, int index) {
-                  return ProductShowCardWidget(
-                    image:
-                        'https://m.media-amazon.com/images/I/31kR1wLc5OL.jpg',
-                    productName:
-                        'Nike mens Nike Air Max 270 React Se Running Shoe',
+            StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('users')
+                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                  .collection('orders')
+                  .snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: AppUtils.appCircularProgressIndicator);
+                } else if (snapshot.data!.docs.isNotEmpty) {
+                  return ProductShowCaseListView(
+                    title: 'Your Orders',
+                    listView: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final productModel = ProductModel.fromJson(
+                            json: snapshot.data!.docs[index].data());
+                        return ProductShowCardWidget(
+                          image: productModel.imageUrl,
+                          productName: productModel.productName,
+                          onTap: () {
+                            Get.to(
+                              ProductDetialScreen(productModel: productModel),
+                            );
+                          },
+                        );
+                      },
+                    ),
                   );
-                },
-              ),
+                } else {
+                  return const SizedBox();
+                }
+              },
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15.0, top: 10),
@@ -170,47 +197,60 @@ class AccountScreen extends StatelessWidget {
                 ),
               ),
             ),
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: 10,
-              shrinkWrap: true,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  right: 10,
-                  bottom: 5,
-                  top: 10,
-                ),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      'Nike Shoe',
-                      style: GoogleFonts.aBeeZee(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: UiColors.blackColor,
+            StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection("users")
+                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                  .collection("orderRequest")
+                  .snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 100),
+                        child: AppUtils.appCircularProgressIndicator),
+                  );
+                } else if (snapshot.data!.docs.isEmpty) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 100),
+                    child: Center(
+                      child: Text(
+                        'Sell your product to get order request',
+                        style: GoogleFonts.aBeeZee(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: UiColors.blackColor,
+                        ),
                       ),
                     ),
-                    subtitle: Text(
-                      'Address Somewhere on Earth',
-                      style: GoogleFonts.aBeeZee(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: UiColors.greyLight,
-                      ),
-                    ),
-                    trailing: const Icon(
-                      Icons.check,
-                    ),
-                  ),
-                ),
-              ),
+                  );
+                } else {
+                  return ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: snapshot.data!.docs.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      final model = OrderRequestModel.fromJson(
+                          json: snapshot.data!.docs[index].data());
+
+                      return OrderRequestCart(
+                        productName: model.productName,
+                        buyerName: model.buyerName,
+                        buyerAddress: model.buyerAddress,
+                        trailingButton: () async {
+                          await FirebaseFirestore.instance
+                              .collection("users")
+                              .doc(FirebaseAuth.instance.currentUser!.uid)
+                              .collection("orderRequest")
+                              .doc(snapshot.data!.docs[index].id)
+                              .delete();
+                        },
+                      );
+                    },
+                  );
+                }
+              },
             ),
           ],
         ),

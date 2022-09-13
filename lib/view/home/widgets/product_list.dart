@@ -1,12 +1,13 @@
-import '../../../core/colors.dart';
-
-import 'product_show_card.dart';
-import 'product_showcase_List_view.dart';
-import '../../product_detial/product_detial_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../controller/home_screen_controller.dart';
+import '../../../core/colors.dart';
 import '../../../core/constants.dart';
+import '../../../core/utils.dart';
+import '../../product_detial/product_detial_screen.dart';
+import 'product_show_card.dart';
+import 'product_showcase_List_view.dart';
 
 class ProductListWidget extends StatelessWidget {
   const ProductListWidget({Key? key}) : super(key: key);
@@ -20,10 +21,8 @@ class ProductListWidget extends StatelessWidget {
         return controller.productdata.isEmpty
             ? SizedBox(
                 height: AppConstants.screenSize.height / 3,
-                child: const Center(
-                  child: CircularProgressIndicator(
-                    color: UiColors.activeCyanColor,
-                  ),
+                child: Center(
+                  child: AppUtils.appCircularProgressIndicator,
                 ),
               )
             : Column(

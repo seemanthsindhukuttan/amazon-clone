@@ -1,7 +1,8 @@
-import 'rating_star.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../core/colors.dart';
+import 'rating_star.dart';
 
 class SearchProductTile extends StatelessWidget {
   final VoidCallback ontap;
@@ -9,18 +10,16 @@ class SearchProductTile extends StatelessWidget {
     Key? key,
     required this.ontap,
     required this.price,
-    required this.brandName,
     required this.productImage,
     required this.productDetials,
     required this.ratingStar,
     required this.ratingCount,
   }) : super(key: key);
-  final int price;
-  final String brandName;
-  final Image productImage;
+  final double price;
+  final String productImage;
   final String productDetials;
-  final int ratingStar;
-  final double ratingCount;
+  final double ratingStar;
+  final int ratingCount;
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +29,9 @@ class SearchProductTile extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Padding(padding: const EdgeInsets.all(8.0), child: productImage),
-            Text(
-              brandName,
-              style: GoogleFonts.aBeeZee(
-                color: UiColors.blackColor,
-                fontSize: 18,
-              ),
-            ),
+            Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.network(productImage)),
             Text(
               productDetials,
               textAlign: TextAlign.center,

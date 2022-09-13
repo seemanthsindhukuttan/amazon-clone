@@ -1,8 +1,9 @@
-import '../../../core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../core/colors.dart';
+import '../../../core/constants.dart';
 import '../../search_result/result_screen.dart';
 
 class CategoryListViewBar extends StatelessWidget {

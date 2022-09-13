@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import '../../services/service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +10,6 @@ import '../../controller/user_detial_bar_controller.dart';
 import '../../core/colors.dart';
 import '../../core/constants.dart';
 import '../../core/utils.dart';
-import '../../services/sell_product_service.dart';
 import '../../widgets/appbar_widget.dart';
 import '../../widgets/cutom_textform_field.dart';
 import '../../widgets/gradient_button.dart';
@@ -46,9 +46,7 @@ class _SellingScreenState extends State<SellingScreen> {
       ),
       body: SafeArea(
         child: isLoading == true
-            ? const Center(
-                child: CircularProgressIndicator(),
-              )
+            ? Center(child: AppUtils.appCircularProgressIndicator)
             : SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -269,8 +267,7 @@ class _SellingScreenState extends State<SellingScreen> {
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
                                     Get.back();
-                                    await SellProductService()
-                                        .uploadProductToDB(
+                                    await AppService().uploadProductToDB(
                                       sellerUid: FirebaseAuth
                                           .instance.currentUser!.uid,
                                       sellerName:

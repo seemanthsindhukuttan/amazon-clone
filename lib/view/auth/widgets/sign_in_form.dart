@@ -1,3 +1,4 @@
+import '../../../services/service.dart';
 import '../../../layout/lobby_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,6 @@ import 'package:linkwell/linkwell.dart';
 import '../../../controller/user_auth_screen_controller.dart';
 import '../../../core/colors.dart';
 import '../../../core/constants.dart';
-import '../../../services/auth_service.dart';
 import '../../../widgets/cutom_textform_field.dart';
 import '../../../widgets/gradient_button.dart';
 
@@ -118,7 +118,7 @@ class _SiginAccountFormState extends State<SiginAccountForm> {
                     //! sign in button onpressed
                     if (_formKey.currentState!.validate()) {
                       //sign in method called
-                      final response = await AuthService().sigInUser(
+                      final response = await AppService().sigInUser(
                         email: emailController.text,
                         password: passwordController.text,
                       );

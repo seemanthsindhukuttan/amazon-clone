@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'core/colors.dart';
+import 'core/utils.dart';
 import 'layout/lobby_screen.dart';
 import 'view/sgin_in or login/sgin_in_or_create.dart';
 
@@ -39,13 +40,10 @@ class Amazon extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: Scaffold(
-                body: CircularProgressIndicator(),
-              ),
+            return Center(
+              child: Scaffold(body: AppUtils.appCircularProgressIndicator),
             );
           } else if (snapshot.hasData) {
-            //FirebaseAuth.instance.signOut();
             return const LayoutScreen();
           } else {
             return const SginInOrCreate();

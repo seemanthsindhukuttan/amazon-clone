@@ -1,7 +1,7 @@
 import 'dart:developer';
-import 'package:amazon_clone/controller/user_detial_bar_controller.dart';
-import 'package:amazon_clone/model/review_model.dart';
-import 'package:amazon_clone/services/upload_review_db.dart';
+import '../../../controller/user_detial_bar_controller.dart';
+import '../../../model/review_model.dart';
+import '../../../services/service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rating_dialog/rating_dialog.dart';
@@ -25,7 +25,7 @@ class RatingDialogWidget extends StatelessWidget {
       commentHint: 'Add comment ',
       onSubmitted: (RatingDialogResponse response) async {
         if (response.rating != null && response.comment != null) {
-          await UploadReview().uploadReview(
+          await AppService().uploadReview(
             uid: uid,
             reviewModel: ReviewModel(
               reviewerName:

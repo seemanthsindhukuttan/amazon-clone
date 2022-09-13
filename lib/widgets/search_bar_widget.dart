@@ -1,8 +1,10 @@
-import '../../../core/colors.dart';
-import '../../../core/constants.dart';
-import '../../search/search_screen.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../core/colors.dart';
+import '../core/constants.dart';
+import '../view/search/search_screen.dart';
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({
@@ -10,12 +12,13 @@ class SearchBarWidget extends StatelessWidget {
     this.isReadOnly = false,
     this.showBackButton = false,
     this.autofocus = false,
-    this.onSubmitted,
+    this.onFieldSubmitted,
   }) : super(key: key);
   final bool isReadOnly;
   final bool showBackButton;
   final bool autofocus;
-  final void Function(String value)? onSubmitted;
+
+  final void Function(String value)? onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,7 @@ class SearchBarWidget extends StatelessWidget {
       ),
       child: Row(
         // crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           showBackButton == true
               ? Padding(
@@ -64,7 +67,7 @@ class SearchBarWidget extends StatelessWidget {
               height: AppConstants.screenSize.height / 19,
               width: showBackButton == false
                   ? AppConstants.screenSize.width * 0.85
-                  : AppConstants.screenSize.width * 0.77,
+                  : AppConstants.screenSize.width * 0.75,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -76,10 +79,10 @@ class SearchBarWidget extends StatelessWidget {
                 ],
               ),
               child: TextFormField(
+                onFieldSubmitted: onFieldSubmitted,
                 onTap: () => Get.to(
                   const SearchScreen(),
                 ),
-                onFieldSubmitted: onSubmitted,
                 readOnly: isReadOnly,
                 autofocus: autofocus,
                 textAlignVertical: TextAlignVertical.center,

@@ -1,14 +1,14 @@
-import '../../controller/home_screen_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controller/user_detial_bar_controller.dart';
-import 'widgets/product_list.dart';
+
+import '../../controller/home_screen_controller.dart';
 import '../../core/colors.dart';
 import '../../core/constants.dart';
 import '../../view/home/widgets/banner_ads.dart';
 import '../../view/home/widgets/category_list_view_bar.dart';
 import '../../view/home/widgets/location_bar_widget.dart';
-import '../../view/home/widgets/search_bar_widget.dart';
-import 'package:flutter/material.dart';
+import '../../widgets/search_bar_widget.dart';
+import 'widgets/product_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
